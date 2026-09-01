@@ -2,9 +2,9 @@ const columns = [
   {
     title: 'Products',
     links: [
-      { label: 'Trahdo Invest', href: '#products' },
-      { label: 'Trahdo Pro', href: '#products' },
-      { label: 'Trahdo Wealth', href: '#products' },
+      { label: 'Trahdo Market', href: '#products' },
+      { label: 'Trahdo App', href: '#products' },
+      { label: 'Trahdo', href: '#products' },
     ],
   },
   {
