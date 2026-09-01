@@ -56,11 +56,7 @@ export default function AboutTrahdo() {
     <section
       id="about"
       data-theme="dark"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
-      style={{
-        backgroundImage:
-          'radial-gradient(55% 50% at 88% 0%, rgba(200,112,60,0.22), transparent 60%), radial-gradient(45% 40% at 6% 100%, rgba(227,161,95,0.14), transparent 60%)',
-      }}
+      className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
     >
       <div className="relative mx-auto w-full max-w-[1800px]">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
