@@ -28,12 +28,12 @@ export default function Stats() {
             </p>
             <div className="mt-8 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 font-mono text-xs font-medium text-ink/70">
-                MI
+                AK
               </span>
               <div>
-                <p className="text-sm font-semibold text-ink">Meera Iyer</p>
+                <p className="text-sm font-semibold text-ink">Akshay Kalbhor</p>
                 <p className="text-sm text-ink/50">
-                  Full-time trader, on Trahdo Pro since 2024
+                  Full-time trader, on Trahdo
                 </p>
               </div>
             </div>
@@ -57,11 +57,11 @@ export default function Stats() {
             </p>
             <div className="mt-8 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 font-mono text-xs font-medium text-ink/70">
-                KS
+                AB
               </span>
               <div>
-                <p className="text-sm font-semibold text-ink">Kabir Shah</p>
-                <p className="text-sm text-ink/50">Co-founder &amp; CEO, Trahdo</p>
+                <p className="text-sm font-semibold text-ink">No Name</p>
+                <p className="text-sm text-ink/50">founder &amp; CEO, Trahdo</p>
               </div>
             </div>
           </div>

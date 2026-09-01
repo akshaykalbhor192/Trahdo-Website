@@ -22,17 +22,17 @@ const products = [
     name: 'Trahdo Pro',
     tagline: 'A terminal built for speed.',
     description:
-      'Level 2 order books, custom scanners, and one-click execution — for traders who live in the market all day.',
+      'Trading App — for traders who live in the market all day.',
     href: '#',
     reverse: true,
     visual: <ProVisual />,
   },
   {
     eyebrow: 'Coming soon',
-    name: 'Lorem Ipsum',
-    tagline: 'Dolor sit amet consectetur.',
+    name: 'Coming Soon',
+    tagline: 'Smple Text.',
     description:
-      'Adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.',
+      'Something awesome is coming soon. Be the first to know',
     href: '#',
     visual: <ComingSoonVisual />,
   },
