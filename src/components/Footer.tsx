@@ -112,12 +112,12 @@ export default function Footer() {
         <div className="mt-8 flex flex-col gap-4 text-xs text-cream-muted/60 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl leading-relaxed">
             Investing involves risk, including possible loss of principal.
-            Trahdo Invest, Trahdo Pro, and Trahdo Wealth are products of
-            Trahdo Financial, Inc. Not FDIC insured. Not bank guaranteed. May
+            Trahdo Market, Trahdo App, and Trahdo are products of
+            Trahdo. Not FDIC insured. Not bank guaranteed. May
             lose value.
           </p>
           <div className="flex items-center gap-6 whitespace-nowrap">
-            <p>© {new Date().getFullYear()} Trahdo Financial, Inc.</p>
+            <p>© {new Date().getFullYear()} Trahdo.</p>
             <a
               href="#top"
               className="inline-flex items-center gap-1.5 font-semibold text-cream-muted transition-colors hover:text-ember-light"

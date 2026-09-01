@@ -46,8 +46,7 @@ export default function Features() {
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/60">
                 One dashboard for the whole lifecycle of an investment — from
-                the first idea to the moment you check your return. No
-                plug-ins, no extra logins, no sprawl.
+                the first idea to the moment you check your return.
               </p>
             </Reveal>
           </div>

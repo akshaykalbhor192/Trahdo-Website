@@ -19,7 +19,7 @@ const products = [
   },
   {
     eyebrow: 'Trading app',
-    name: 'Trahdo Pro',
+    name: 'Trahdo App',
     tagline: 'A terminal built for speed.',
     description:
       'Trading App — for traders who live in the market all day.',
