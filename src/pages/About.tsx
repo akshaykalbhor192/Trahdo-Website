@@ -80,7 +80,7 @@ export default function About() {
     <main className="bg-ink">
       <section
         data-theme="dark"
-        className="flex min-h-[85vh] flex-col justify-center bg-ink px-6 sm:px-8 lg:px-12"
+        className="flex min-h-screen flex-col justify-center bg-ink px-6 sm:px-8 lg:px-12"
       >
         <div className="mx-auto w-full max-w-[1800px]">
           <Reveal>
@@ -123,9 +123,9 @@ export default function About() {
 
       <section
         data-theme="light"
-        className="bg-paper px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
+        className="flex min-h-screen flex-col justify-center bg-paper px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
       >
-        <div className="mx-auto max-w-[1800px]">
+        <div className="mx-auto w-full max-w-[1800px]">
           <Reveal>
             <span className="font-mono text-xs font-medium uppercase tracking-wider text-ember">
               Our story
@@ -146,9 +146,9 @@ export default function About() {
 
       <section
         data-theme="dark"
-        className="bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
+        className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
       >
-        <div className="mx-auto max-w-[1800px]">
+        <div className="mx-auto w-full max-w-[1800px]">
           <Reveal>
             <span className="font-mono text-xs font-medium uppercase tracking-wider text-ember">
               What we believe
@@ -234,7 +234,7 @@ export default function About() {
 
       <section
         data-theme="dark"
-        className="flex min-h-[60vh] flex-col justify-center bg-ink px-6 py-24 text-center sm:px-8 lg:px-12"
+        className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 text-center sm:px-8 lg:px-12"
       >
         <div className="mx-auto w-full max-w-2xl">
           <Reveal>
