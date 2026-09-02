@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export type SectionTheme = 'dark' | 'light'
 
 export function useSectionTheme(navHeight: number) {
   const [theme, setTheme] = useState<SectionTheme>('dark')
   const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const sections = Array.from(
@@ -44,7 +46,7 @@ export function useSectionTheme(navHeight: number) {
       window.removeEventListener('resize', onScroll)
       document.removeEventListener('visibilitychange', update)
     }
-  }, [navHeight])
+  }, [navHeight, pathname])
 
   return { theme, scrolled }
 }

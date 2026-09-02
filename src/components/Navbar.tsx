@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useSectionTheme } from '../hooks/useSectionTheme'
 
 export const NAV_HEIGHT = 68
@@ -23,7 +24,7 @@ export default function Navbar() {
   return (
     <header className={headerClass}>
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
-        <a href="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <span
             className={
               useInkText
@@ -33,7 +34,7 @@ export default function Navbar() {
           >
             Trahdo
           </span>
-        </a>
+        </Link>
 
         <nav
           className={
@@ -42,12 +43,12 @@ export default function Navbar() {
               : 'hidden items-center gap-10 text-sm font-medium text-cream/90 transition-colors duration-300 md:flex'
           }
         >
-          <a href="#about" className={linkClass}>
+          <Link to="/about" className={linkClass}>
             About
-          </a>
-          <a href="#products" className={linkClass}>
+          </Link>
+          <Link to="/#products" className={linkClass}>
             Products
-          </a>
+          </Link>
           <a href="#careers" className={linkClass}>
             Careers
           </a>

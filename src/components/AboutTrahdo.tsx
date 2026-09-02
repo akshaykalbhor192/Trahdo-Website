@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 
 const pillars = [
@@ -54,7 +55,6 @@ const pillars = [
 export default function AboutTrahdo() {
   return (
     <section
-      id="about"
       data-theme="dark"
       className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
     >
@@ -85,8 +85,8 @@ export default function AboutTrahdo() {
             </Reveal>
 
             <Reveal delay={240} className="mt-6">
-              <a
-                href="#products"
+              <Link
+                to="/about"
                 className="group inline-flex w-fit items-center gap-2 font-semibold text-cream transition-colors hover:text-ember-light"
               >
                 Learn more
@@ -105,7 +105,7 @@ export default function AboutTrahdo() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             </Reveal>
           </div>
         </div>

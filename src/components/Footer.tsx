@@ -1,16 +1,20 @@
-const columns = [
+import { Link } from 'react-router-dom'
+
+type ColumnLink = { label: string; to?: string; href?: string }
+
+const columns: { title: string; links: ColumnLink[] }[] = [
   {
     title: 'Products',
     links: [
-      { label: 'Trahdo Market', href: '#products' },
-      { label: 'Trahdo App', href: '#products' },
-      { label: 'Trahdo', href: '#products' },
+      { label: 'Trahdo Market', to: '/#products' },
+      { label: 'Trahdo App', to: '/#products' },
+      { label: 'Trahdo', to: '/#products' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '#about' },
+      { label: 'About', to: '/about' },
       { label: 'Careers', href: '#careers' },
     ],
   },
@@ -96,12 +100,21 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-cream-muted transition-colors hover:text-ember-light"
-                    >
-                      {link.label}
-                    </a>
+                    {link.to ? (
+                      <Link
+                        to={link.to}
+                        className="text-sm text-cream-muted transition-colors hover:text-ember-light"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-cream-muted transition-colors hover:text-ember-light"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -118,8 +131,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6 whitespace-nowrap">
             <p>© {new Date().getFullYear()} Trahdo.</p>
-            <a
-              href="#top"
+            <button
+              type="button"
+              onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center gap-1.5 font-semibold text-cream-muted transition-colors hover:text-ember-light"
             >
               Back to top
@@ -132,7 +146,7 @@ export default function Footer() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>

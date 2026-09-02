@@ -51,6 +51,16 @@ body {
   }
 }
 
+@keyframes bounce-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -58,6 +68,10 @@ body {
 
   .status-dot {
     animation: pulse-dot 1.8s ease-in-out 4;
+  }
+
+  .scroll-cue {
+    animation: bounce-y 1.6s ease-in-out infinite;
   }
 
   .scroll-reveal {
