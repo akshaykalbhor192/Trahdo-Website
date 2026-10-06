@@ -1,265 +1,243 @@
+import { useEffect, useRef } from 'react'
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import Reveal from '../components/Reveal'
-import AboutTimeline from '../components/AboutTimeline'
+import ScrollCraftRoot from '../components/ScrollCraftRoot'
+import { Arrow, Mark } from '../components/Mark'
+import { CTA_LABEL } from '../lib/links'
+import { principles, teamNote, timeline } from '../content'
+import { pinProgress } from '../session/clock'
+import { SERIES, SESSION_MINUTES, linePath, rangeOf } from '../session/data'
+import miShot from '../assets/market-intelligence.webp'
 
-const values = [
-  {
-    title: 'Built by traders',
-    description:
-      'Every feature ships because someone on the team needed it first — not because a roadmap said so.',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M3 12h4l2-7 4 14 2-7h6"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'Transparent pricing',
-    description:
-      'The spread you see before you click is the spread you get filled at. No hidden fees, ever.',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="7" cy="7" r="2.25" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="17" cy="17" r="2.25" stroke="currentColor" strokeWidth="1.5" />
-        <path
-          d="M18 6 6 18"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'Regulated & secure',
-    description:
-      'Client funds are held separately, every trade is logged end-to-end, and support is a real person.',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'One dashboard, not a dozen',
-    description:
-      'Research, trade, and track without juggling five tabs and five different logins to do it.',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 3 3 8l9 5 9-5-9-5Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 12l9 5 9-5"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
+/*
+ * About. Four full-viewport scenes. The story is a time axis (2021 to today), carried by one
+ * long pinned act whose ground warms from graphite to ember as the second product arrives.
+ */
+
+const W = 1000
+const H = 120
+const [lo, hi] = rangeOf(SERIES.NIFTY.price, 0, SESSION_MINUTES)
+const LINE = linePath(SERIES.NIFTY.price, 0, SESSION_MINUTES, W, H, lo - 0.1, hi + 0.1, 6)
+
+// Beat windows over the act's pinned progress. Overlap ~15% so there is never a gap.
+const beats = [
+  { cue: '0 0.27 0 0.2', ...timeline[0] },
+  { cue: '0.25 0.52 0.2 0.2', ...timeline[1] },
+  { cue: '0.5 0.77 0.2 0.2', ...timeline[2] },
+  { cue: '0.75 1 0.2 0.01', ...timeline[3] },
+]
+
+function Sheet() {
+  const cols = ['Ticker', 'Qty', 'Entry', 'Now']
+  return (
+    <div className="sheet" role="img" aria-label="An empty shared spreadsheet with the columns Ticker, Qty, Entry and Now">
+      <div className="sheet__bar mono">fx</div>
+      <div className="sheet__grid">
+        {cols.map((c) => (
+          <span key={c} className="sheet__head mono">
+            {c}
+          </span>
+        ))}
+        {Array.from({ length: 12 }, (_, i) => (
+          <span key={i} className="sheet__cell" />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function Terminal() {
+  const levels = [3, 5, 2, 4, 1]
+  return (
+    <div className="mini" role="img" aria-label="Order book illustration: Level 2 depth, scanners, one-click execution">
+      <div className="mini__rows">
+        {levels.map((w, i) => (
+          <span key={i} style={{ transform: `scaleX(${w / 5})` }} />
+        ))}
+      </div>
+      <ul className="mini__tags mono">
+        <li>Level 2</li>
+        <li>Scanners</li>
+        <li>One-click</li>
+      </ul>
+    </div>
+  )
+}
+
+function Both() {
+  return (
+    <div className="both" role="img" aria-label="Trahdo Market Intelligence and Trahdo App">
+      <div className="both__mi">
+        <Mark />
+        <span>Market Intelligence</span>
+        <small className="mono">Live</small>
+      </div>
+      <div className="both__app">
+        <Mark />
+        <span>App</span>
+        <small className="mono">Early access</small>
+      </div>
+    </div>
+  )
+}
+
+const visuals = [
+  <Sheet key="s" />,
+  <img key="m" className="shot" src={miShot} width="1600" height="1000" alt="Trahdo Market Intelligence, the first product" loading="lazy" />,
+  <Terminal key="t" />,
+  <Both key="b" />,
 ]
 
 export default function About() {
-  return (
-    <main className="bg-ink">
-      <section
-        data-theme="dark"
-        className="flex min-h-screen flex-col justify-center bg-ink px-6 sm:px-8 lg:px-12"
-      >
-        <div className="mx-auto w-full max-w-[1800px]">
-          <Reveal>
-            <span className="font-mono text-xs font-medium uppercase tracking-wider text-ember">
-              About Trahdo
-            </span>
-          </Reveal>
+  const stageRef = useRef<HTMLDivElement>(null)
 
-          <Reveal delay={80}>
-            <h1 className="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-cream sm:text-6xl lg:text-7xl">
+  // Publish what the story stage actually paints (axis fill and ground warmth, rounded) so the
+  // verification harness can see this bespoke change.
+  useEffect(() => {
+    const stage = stageRef.current
+    const act = stage?.parentElement
+    if (!stage || !act) return
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const p = pinProgress(act)
+      const k = Math.min(Math.max((p - 0.4) / 0.32, 0), 1)
+      stage.dataset.scVerifyState = `${Math.round(p * 100)}|${Math.round(k * 20)}`
+    }
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      if (frame) cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  return (
+    <ScrollCraftRoot className="about" title="About | Trahdo">
+      <main id="main">
+        {/* 1. Arrival */}
+        <section className="page-hero act" data-sc-act="flow" data-sc-drift="#0c0b0b" aria-labelledby="about-title">
+          <div className="page-hero__inner" data-sc-in data-sc-stagger="80">
+            <h1 id="about-title" className="display display--xl">
               Moving markets, money and every investor forward.
             </h1>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream-muted">
-              We&apos;re a small team building the infrastructure we wished
-              existed when we started investing — research, execution and
-              portfolio tracking that all speak to each other, instead of
-              fighting for a tab.
+            <p className="lede">
+              We are a small team building the infrastructure we wished existed when we started
+              investing: research, execution and portfolio tracking that all speak to each other,
+              instead of fighting for a tab.
             </p>
-          </Reveal>
-        </div>
-
-        <div className="scroll-cue mx-auto mt-16 flex flex-col items-center gap-2 text-cream-muted/50">
-          <span className="font-mono text-[10px] uppercase tracking-wider">
-            Scroll
-          </span>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3.5 6 8 10.5 12.5 6"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          </div>
+          <svg className="page-hero__line" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
+            <path d={LINE} vectorEffect="non-scaling-stroke" />
           </svg>
-        </div>
-      </section>
+        </section>
 
-      <section
-        data-theme="light"
-        className="flex min-h-screen flex-col justify-center bg-paper px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
-      >
-        <div className="mx-auto w-full max-w-[1800px]">
-          <Reveal>
-            <span className="font-mono text-xs font-medium uppercase tracking-wider text-ember">
-              Our story
-            </span>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h2 className="mt-4 max-w-2xl font-display text-4xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">
-              From a shared spreadsheet to three products.
-            </h2>
-          </Reveal>
-
-          <div className="mt-16 max-w-2xl lg:mt-20">
-            <AboutTimeline />
-          </div>
-        </div>
-      </section>
-
-      <section
-        data-theme="dark"
-        className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
-      >
-        <div className="mx-auto w-full max-w-[1800px]">
-          <Reveal>
-            <span className="font-mono text-xs font-medium uppercase tracking-wider text-ember">
-              What we believe
-            </span>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h2 className="mt-4 max-w-2xl font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl">
-              The principles behind every product decision.
-            </h2>
-          </Reveal>
-
-          <div className="mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
-            {values.map((value, i) => (
-              <Reveal key={value.title} delay={i * 100}>
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/15 text-ember-light">
-                  {value.icon}
+        {/* 2. The timeline: one pinned act, four full-viewport beats */}
+        <section
+          id="story"
+          className="story act"
+          data-sc-act="pin"
+          data-sc-span="5"
+          data-sc-drift="#121316"
+          aria-label="Our story"
+        >
+          <div data-sc-stage ref={stageRef} className="story__stage">
+            <div className="story__years" aria-hidden="true">
+              {beats.map((b) => (
+                <span key={b.year} className="story__year mono" data-sc-cue={b.cue}>
+                  {b.year}
                 </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-cream">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-cream-muted/70">
-                  {value.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        data-theme="light"
-        className="flex min-h-screen flex-col justify-center bg-paper px-6 py-24 sm:px-8 lg:px-12"
-      >
-        <div className="mx-auto w-full max-w-[1800px]">
-          <Reveal>
-            <div className="max-w-2xl">
-              <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="text-ember">
-                <path
-                  d="M0 24V14.4C0 6.4 4.8 1.2 12.8 0L14 3.2C9.6 4.4 7.2 7.2 6.8 11.2H14V24H0ZM18 24V14.4C18 6.4 22.8 1.2 30.8 0L32 3.2C27.6 4.4 25.2 7.2 24.8 11.2H32V24H18Z"
-                  fill="currentColor"
-                />
-              </svg>
-
-              <span className="mt-6 block font-mono text-xs font-medium uppercase tracking-wider text-ember">
-                A letter from our founder
-              </span>
-
-              <p className="mt-6 font-display text-2xl font-bold leading-snug tracking-tight text-ink sm:text-3xl">
-                Every investing app I&apos;d used before felt like it was
-                built for someone else.
-              </p>
-
-              <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink/70">
-                <p>
-                  A broker&apos;s quarterly numbers, an advertiser&apos;s
-                  engagement targets, anyone but the person actually holding
-                  the portfolio. Trahdo started as a spreadsheet a few of us
-                  shared to track our own trades, because nothing else told
-                  us the truth fast enough.
-                </p>
-                <p>
-                  Today it&apos;s the same idea, just built for everyone
-                  who&apos;s ever refreshed five tabs to check one price. We
-                  don&apos;t think that&apos;s a small problem — it&apos;s
-                  the whole reason we started.
-                </p>
-              </div>
-
-              <div className="mt-10 flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 font-mono text-xs font-medium text-ink/70">
-                  AB
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-ink">No Name</p>
-                  <p className="text-sm text-ink/50">Founder &amp; CEO, Trahdo</p>
-                </div>
-              </div>
+              ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
 
-      <section
-        data-theme="dark"
-        className="flex min-h-screen flex-col justify-center bg-ink px-6 py-24 text-center sm:px-8 lg:px-12"
-      >
-        <div className="mx-auto w-full max-w-2xl">
-          <Reveal>
-            <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl">
-              Come see what we&apos;re building.
+            <div className="story__beats">
+              {beats.map((b, i) => (
+                <article key={b.year} className="story__beat" data-sc-cue={b.cue}>
+                  <p className="sr-only">{b.year}</p>
+                  <h2 className="display display--lg">{b.title}</h2>
+                  <p className="lede">{b.body}</p>
+                  <div className="story__visual">{visuals[i]}</div>
+                </article>
+              ))}
+            </div>
+
+            <div className="story__axis" aria-hidden="true">
+              <i className="story__fill" />
+              {beats.map((b, i) => (
+                <span
+                  key={b.year}
+                  className="story__tick mono"
+                  style={{ left: `${(i / (beats.length - 1)) * 100}%`, '--i': i } as CSSProperties}
+                >
+                  {b.year}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Beliefs */}
+        <section className="beliefs act" data-sc-act="flow" data-sc-drift="#0e0a07" aria-labelledby="beliefs-title">
+          <div className="beliefs__inner">
+            <div className="beliefs__head" data-sc-in data-sc-stagger="70">
+              <p className="label">What we believe</p>
+              <h2 id="beliefs-title" className="display display--lg">
+                The principles behind every product decision.
+              </h2>
+            </div>
+            <dl className="beliefs__list" data-sc-in data-sc-stagger="70">
+              {principles.map((p) => (
+                <div key={p.title} className="beliefs__row">
+                  <dt className="display display--sm">{p.title}</dt>
+                  <dd className="body">{p.body}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* 4. A note from the team */}
+        <section className="note act" data-sc-act="flow" data-sc-drift="#0e0a07" aria-labelledby="note-title">
+          <div className="note__inner" data-sc-in data-sc-stagger="80">
+            <h2 id="note-title" className="display display--lg">
+              {teamNote.lead}
             </h2>
-          </Reveal>
+            <div className="note__body">
+              {teamNote.body.map((p) => (
+                <p key={p} className="lede">
+                  {p}
+                </p>
+              ))}
+            </div>
+            <p className="note__sign">The Trahdo team</p>
+          </div>
+        </section>
 
-          <Reveal delay={100}>
-            <p className="mt-4 text-lg text-cream-muted">
-              Three products, one mission. Pick the one that fits how you
-              invest.
-            </p>
-          </Reveal>
-
-          <Reveal delay={200} className="mt-8 flex justify-center">
-            <Link
-              to="/#products"
-              className="rounded-full bg-ember px-8 py-4 font-semibold text-cream shadow-lg shadow-ember/30 transition-transform hover:scale-[1.02]"
-            >
-              Explore our products
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-    </main>
+        {/* 5. Close */}
+        <section className="cta-block act" data-sc-act="flow" data-sc-drift="#0d0907" aria-labelledby="about-cta">
+          <div className="cta-block__inner" data-sc-in data-sc-stagger="80">
+            <h2 id="about-cta" className="display display--xl">
+              Come see what we are building.
+            </h2>
+            <p className="lede">Two products, one mission. Pick the one that fits how you invest.</p>
+            <div className="cta-block__row">
+              <Link to="/#get-started" className="btn btn--primary">
+                {CTA_LABEL}
+                <Arrow />
+              </Link>
+              <Link to="/careers" className="textlink">
+                Careers
+                <Arrow size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    </ScrollCraftRoot>
   )
 }

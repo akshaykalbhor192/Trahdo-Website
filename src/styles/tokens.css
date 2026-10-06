@@ -1,0 +1,61 @@
+/*
+ * One brand system, two product identities.
+ *
+ * Shared by everything: Geist Sans + Geist Mono, one spacing scale, one radius scale, the
+ * traced wordmark, and the session line. Identity differs by product:
+ *
+ *   Market Intelligence   graphite ground, signal green, amber for alerts
+ *                         (sampled from the real product screenshot)
+ *   Trahdo App            warm ink ground, ember
+ *   Company (nav, CTA)    ember, because the company is the warm half of the pair
+ *
+ * Gain/loss colours (--up/--down) are a separate semantic pair used only for numbers.
+ */
+:root {
+  /* Scroll-Craft roles. --sc-canvas is what the engine drifts between acts. */
+  --sc-canvas: #0c0b0b;
+  --sc-surface: #141214;
+  --sc-ink: #f3f1ee;
+  --sc-ink-soft: #aba5a0;
+  --sc-accent: #e3a15f;
+  --sc-accent-ink: #130b05;
+  --sc-font-display: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --sc-font-text: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --sc-font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Market Intelligence identity */
+  --mi-ground: #131417;
+  --mi-surface: #1a1c20;
+  --mi-line: #2a2d33;
+  --mi-accent: #3ddc84;
+  --mi-warn: #ffd166;
+  --mi-ink-soft: #a3a7b0;
+
+  /* Trahdo App identity */
+  --app-ground: #0e0a07;
+  --app-surface: #18120d;
+  --app-line: #33261b;
+  --app-accent: #e3a15f;
+  --app-accent-deep: #c8703c;
+  --app-ink-soft: #b3a89c;
+
+  /* Semantic numbers */
+  --up: #3ddc84;
+  --down: #ff8274;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 20px; /* floating chrome: nav pill, dock, hero window */
+
+  --nav-h: 72px;
+  --rail-h: 68px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-1: 0 1px 2px hsl(20 30% 2% / 0.4), 0 8px 24px -8px hsl(20 30% 2% / 0.5);
+}
+
+html {
+  color-scheme: dark;
+  background: var(--sc-canvas);
+}

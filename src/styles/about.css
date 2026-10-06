@@ -1,0 +1,221 @@
+/* ================================================================== about ==
+   One long pinned act carries the timeline. The stage ground is painted here (graphite to
+   warm, driven by the act's own --sc-p) because the story is the ground changing: Market
+   Intelligence first, then the App. */
+
+.story__stage {
+  --k: clamp(0, calc((var(--sc-p, 0) - 0.4) / 0.32), 1);
+  background: color-mix(in oklab, var(--mi-ground) calc(100% - var(--k) * 100%), var(--app-ground));
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: calc(var(--nav-h) + 1rem) var(--sc-gutter) 1.6rem;
+  gap: 1rem;
+}
+.story__years {
+  position: absolute;
+  left: var(--sc-gutter);
+  top: calc(var(--nav-h) + 1.5rem);
+  display: grid;
+  pointer-events: none;
+  z-index: 1;
+}
+.story__year {
+  grid-area: 1 / 1;
+  font-size: clamp(3.4rem, 1rem + 11vw, 12rem);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  color: #b98351;
+}
+.story__beats {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  z-index: 2;
+}
+.story__beat {
+  grid-area: 1 / 1;
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+  align-self: center;
+  max-width: 44rem;
+  padding-top: clamp(3.5rem, 12vw, 0rem);
+}
+.story__beat .display {
+  font-size: clamp(1.9rem, 0.9rem + 3.2vw, 3.8rem);
+  max-width: 14ch;
+}
+.story__beat .lede {
+  --soft: color-mix(in oklab, var(--sc-ink) 72%, transparent);
+  max-width: 40ch;
+}
+.story__visual {
+  margin-top: 0.8rem;
+}
+.story__axis {
+  position: relative;
+  height: 2rem;
+  border-top: 1px solid var(--hairline);
+}
+.story__fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: var(--sc-accent);
+  transform-origin: left;
+  transform: scaleX(var(--sc-p, 0));
+}
+.story__tick {
+  position: absolute;
+  top: 0.45rem;
+  translate: calc(var(--i) * -33.333%) 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+@media (min-width: 880px) {
+  .story__stage {
+    grid-template-columns: 1fr 1.05fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .story__years {
+    position: static;
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .story__beats {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .story__axis {
+    grid-column: 1 / -1;
+  }
+  .story__beat {
+    padding-top: 0;
+  }
+}
+@media (max-height: 740px) {
+  .story__visual {
+    display: none;
+  }
+}
+
+/* Illustrations in the beats. They illustrate the story; none pretends to be the product. */
+.sheet {
+  width: min(28rem, 100%);
+  border: 1px solid var(--mi-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--mi-surface);
+}
+.sheet__bar {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.72rem;
+  color: var(--mi-ink-soft);
+  border-bottom: 1px solid var(--mi-line);
+}
+.sheet__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.sheet__head,
+.sheet__cell {
+  padding: 0.5rem 0.7rem;
+  border-right: 1px solid var(--mi-line);
+  border-bottom: 1px solid var(--mi-line);
+  min-height: 2rem;
+}
+.sheet__head {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mi-ink-soft);
+  background: color-mix(in oklab, var(--sc-ink) 4%, transparent);
+}
+.sheet__head:nth-child(4n),
+.sheet__cell:nth-child(4n) {
+  border-right: 0;
+}
+.shot {
+  width: min(30rem, 100%);
+  height: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--mi-line);
+}
+.mini {
+  width: min(24rem, 100%);
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--app-line);
+  border-radius: var(--r-md);
+  background: var(--app-surface);
+}
+.mini__rows {
+  display: grid;
+  gap: 0.35rem;
+}
+.mini__rows span {
+  height: 0.55rem;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--app-accent) 55%, transparent);
+  transform-origin: left;
+}
+.mini__tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+}
+.mini__tags li {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--app-line);
+  border-radius: var(--r-sm);
+  color: var(--app-ink-soft);
+}
+.both {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.both > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--hairline);
+}
+.both svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  grid-row: span 2;
+}
+.both span {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--sc-ink);
+}
+.both small {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+.both__mi {
+  background: var(--mi-ground);
+  color: var(--mi-accent);
+}
+.both__app {
+  background: var(--app-ground);
+  color: var(--app-accent);
+}

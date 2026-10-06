@@ -1,73 +1,90 @@
-import { Link } from 'react-router-dom'
-import { useSectionTheme } from '../hooks/useSectionTheme'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { CTA_LABEL } from '../lib/links'
+import { Mark } from './Mark'
 
-export const NAV_HEIGHT = 68
+const links = [
+  { to: '/about', label: 'About' },
+  { to: '/#products', label: 'Products' },
+  { to: '/careers', label: 'Careers' },
+  { to: '/security', label: 'Security' },
+]
 
 export default function Navbar() {
-  const { theme, scrolled } = useSectionTheme(NAV_HEIGHT)
-  const useInkText = scrolled && theme === 'light'
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 8)
+  // The sheet is open for one specific location, so any navigation closes it.
+  const { pathname, hash } = useLocation()
+  const here = pathname + hash
+  const [openAt, setOpenAt] = useState<string | null>(null)
+  const open = openAt === here
 
-  const linkClass = useInkText
-    ? 'transition-colors hover:text-ink'
-    : 'transition-colors hover:text-cream'
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
-  let headerClass =
-    'fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 '
-  if (!scrolled) {
-    headerClass += 'border-transparent bg-transparent backdrop-blur-none'
-  } else if (useInkText) {
-    headerClass += 'border-ink/10 bg-paper/70 backdrop-blur-md'
-  } else {
-    headerClass += 'border-cream/10 bg-ink/50 backdrop-blur-md'
-  }
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpenAt(null)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   return (
-    <header className={headerClass}>
-      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
-        <Link to="/" className="flex items-center gap-3">
-          <span
-            className={
-              useInkText
-                ? 'font-display text-lg font-extrabold tracking-tight text-ink transition-colors duration-300'
-                : 'font-display text-lg font-extrabold tracking-tight text-cream transition-colors duration-300'
-            }
-          >
-            Trahdo
-          </span>
+    <header className="nav" data-scrolled={scrolled} data-open={open}>
+      <div className="nav__inner">
+        <Link to="/" className="wordmark" aria-label="Trahdo home">
+          <Mark />
+          <span>trahdo</span>
         </Link>
 
-        <nav
-          className={
-            useInkText
-              ? 'hidden items-center gap-10 text-sm font-medium text-ink/80 transition-colors duration-300 md:flex'
-              : 'hidden items-center gap-10 text-sm font-medium text-cream/90 transition-colors duration-300 md:flex'
-          }
-        >
-          <Link to="/about" className={linkClass}>
-            About
-          </Link>
-          <Link to="/#products" className={linkClass}>
-            Products
-          </Link>
-          <a href="#careers" className={linkClass}>
-            Careers
-          </a>
-          <a href="#developers" className={linkClass}>
-            Developers
-          </a>
+        <nav aria-label="Primary">
+          <ul className="nav__links">
+            {links.map((link) => (
+              <li key={link.label}>
+                {link.to.includes('#') ? (
+                  <Link to={link.to} className="nav__link">
+                    {link.label}
+                  </Link>
+                ) : (
+                  <NavLink to={link.to} className="nav__link">
+                    {link.label}
+                  </NavLink>
+                )}
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        <a
-          href="#get-started"
-          className={
-            useInkText
-              ? 'rounded-full bg-ink/10 px-4 py-2 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-ink/15'
-              : 'rounded-full bg-cream/15 px-4 py-2 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-cream/25'
-          }
+        <Link to="/#get-started" className="btn btn--primary nav__cta">
+          {CTA_LABEL}
+        </Link>
+
+        <button
+          type="button"
+          className="nav__toggle"
+          aria-expanded={open}
+          aria-controls="nav-sheet"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpenAt(open ? null : here)}
         >
-          Start trading
-        </a>
+          <span />
+        </button>
       </div>
+
+      {open ? (
+        <div id="nav-sheet" className="nav__sheet">
+          {links.map((link) => (
+            <Link key={link.label} to={link.to}>
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/#get-started" className="btn btn--primary">
+            {CTA_LABEL}
+          </Link>
+        </div>
+      ) : null}
     </header>
   )
 }

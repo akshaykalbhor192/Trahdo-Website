@@ -1,0 +1,332 @@
+/* ================================================================== chrome ==
+   The site's floating glass chrome: the nav pill (every page) and the session dock (home).
+   Both float over the page rather than owning a strip of it, so content is never cropped by
+   a bar. */
+
+/* -------------------------------------------------------------------- nav -- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  padding: 12px var(--sc-gutter) 0;
+  pointer-events: none;
+}
+.nav__inner {
+  pointer-events: auto;
+  height: 54px;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-inline: 1rem 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 11%, transparent);
+  border-radius: var(--r-xl);
+  background: color-mix(in oklab, var(--sc-canvas) 58%, transparent);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #fff 7%, transparent),
+    0 10px 30px -12px hsl(20 30% 2% / 0.6);
+  transition:
+    background-color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+.nav[data-scrolled='true'] .nav__inner,
+.nav[data-open='true'] .nav__inner {
+  background: color-mix(in oklab, var(--sc-canvas) 82%, transparent);
+  border-color: color-mix(in oklab, var(--sc-ink) 14%, transparent);
+}
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__link {
+  position: relative;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: color-mix(in oklab, var(--sc-ink) 78%, transparent);
+  text-decoration: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--r-md);
+  transition:
+    color 140ms var(--ease-out),
+    background-color 140ms var(--ease-out);
+}
+.nav__link:hover {
+  color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-ink) 7%, transparent);
+}
+.nav__link[aria-current='page'] {
+  color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-ink) 9%, transparent);
+}
+.nav__cta {
+  display: none;
+  min-height: 2.5rem;
+  padding: 0 1.1rem;
+  font-size: 0.9rem;
+}
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: none;
+  border: 0;
+  color: var(--sc-ink);
+  cursor: pointer;
+}
+.nav__toggle span {
+  position: relative;
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+  transition: background-color 120ms var(--ease-out);
+}
+.nav__toggle span::before,
+.nav__toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 200ms var(--ease-out);
+}
+.nav__toggle span::before {
+  transform: translateY(-5px);
+}
+.nav__toggle span::after {
+  transform: translateY(5px);
+}
+.nav[data-open='true'] .nav__toggle span {
+  background: transparent;
+}
+.nav[data-open='true'] .nav__toggle span::before {
+  transform: rotate(45deg);
+}
+.nav[data-open='true'] .nav__toggle span::after {
+  transform: rotate(-45deg);
+}
+.nav__sheet {
+  pointer-events: auto;
+  position: fixed;
+  inset: 72px var(--sc-gutter) auto var(--sc-gutter);
+  background: color-mix(in oklab, var(--sc-canvas) 94%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  border-radius: var(--r-xl);
+  padding: 0.5rem 1.1rem 1.1rem;
+  display: grid;
+  gap: 0.1rem;
+}
+.nav__sheet a:not(.btn) {
+  display: block;
+  padding: 0.85rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--sc-ink) 8%, transparent);
+}
+.nav__sheet .btn {
+  margin-top: 0.9rem;
+}
+@media (min-width: 880px) {
+  .nav__links,
+  .nav__cta {
+    display: inline-flex;
+  }
+  .nav__toggle,
+  .nav__sheet {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------ session dock --
+   A small glass capsule at the bottom centre: the session clock, the act you are in, and the
+   day as a thin track with one stop per act. Hover or focus a stop for its name. */
+.rail {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  z-index: 55;
+  width: min(34rem, calc(100vw - 2rem));
+  height: 46px;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0 1rem 0 1.1rem;
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  border-radius: var(--r-xl);
+  background: color-mix(in oklab, var(--sc-canvas) 66%, transparent);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #fff 7%, transparent),
+    0 12px 32px -12px hsl(20 30% 2% / 0.7);
+  transition:
+    opacity 220ms var(--ease-out),
+    transform 220ms var(--ease-out);
+}
+.rail[data-hidden='true'] {
+  opacity: 0;
+  transform: translateY(140%);
+  pointer-events: none;
+}
+.rail__clock {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--sc-ink);
+  font-variant-numeric: tabular-nums;
+}
+.rail__clock small {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--sc-ink-soft);
+}
+.rail__now {
+  display: none;
+  flex: none;
+  min-width: 4.8rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+.rail__track {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin-inline: 4px;
+}
+.rail__line,
+.rail__fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 1px;
+}
+.rail__line {
+  background: color-mix(in oklab, var(--sc-ink) 16%, transparent);
+}
+.rail__fill {
+  background: var(--sc-accent);
+  transform-origin: left center;
+  transform: scaleX(var(--ph, 0));
+}
+.rail__stops {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rail__stop {
+  position: absolute;
+  top: 50%;
+}
+.rail__tick {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.rail__tick::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--sc-canvas);
+  border: 1.5px solid color-mix(in oklab, var(--sc-ink) 40%, transparent);
+  transition:
+    transform 140ms var(--ease-out),
+    background-color 140ms var(--ease-out),
+    border-color 140ms var(--ease-out);
+}
+.rail__tick[data-passed='true']::before {
+  background: color-mix(in oklab, var(--sc-accent) 55%, var(--sc-canvas));
+  border-color: var(--sc-accent);
+}
+.rail__tick[aria-current='true']::before {
+  background: var(--sc-accent);
+  border-color: var(--sc-accent);
+  transform: scale(1.35);
+}
+.rail__tick::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 4px);
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--r-sm);
+  background: var(--sc-ink);
+  color: var(--sc-canvas);
+  font: 500 0.66rem var(--sc-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 120ms var(--ease-out),
+    transform 120ms var(--ease-out);
+}
+.rail__tick:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@media (hover: hover) and (pointer: fine) {
+  .rail__tick:hover::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .rail__tick:hover::before {
+    transform: scale(1.35);
+  }
+}
+@media (min-width: 640px) {
+  .rail__now {
+    display: block;
+  }
+}
+@media (max-width: 639px) {
+  .rail__stop:not(:first-child):not(:last-child) {
+    display: none;
+  }
+}
+
+/* Keep the end of every page clear of the fixed dock. */
+.has-rail .stage-pad {
+  padding-bottom: calc(var(--rail-h) + 0.5rem);
+}

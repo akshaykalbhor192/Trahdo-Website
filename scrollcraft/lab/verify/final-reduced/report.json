@@ -1,0 +1,1568 @@
+{
+  "doc": {
+    "height": 14859,
+    "vh": 900,
+    "acts": [
+      "pin",
+      "pin",
+      "flow",
+      "pan",
+      "flow",
+      "pin",
+      "pin"
+    ],
+    "world": null
+  },
+  "report": [
+    {
+      "i": 0,
+      "y": 13,
+      "pct": 0,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1517,
+        4487,
+        8627,
+        13307
+      ],
+      "segs": [],
+      "custom": [
+        "0",
+        "0"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 1,
+      "y": 134,
+      "pct": 1,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1396,
+        4366,
+        8506,
+        13186
+      ],
+      "segs": [],
+      "custom": [
+        "3",
+        "3"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 2,
+      "y": 255,
+      "pct": 2,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1275,
+        4245,
+        8385,
+        13065
+      ],
+      "segs": [],
+      "custom": [
+        "6",
+        "6"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 3,
+      "y": 375,
+      "pct": 3,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1155,
+        4125,
+        8265,
+        12945
+      ],
+      "segs": [],
+      "custom": [
+        "8",
+        "8"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 4,
+      "y": 496,
+      "pct": 4,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1034,
+        4004,
+        8144,
+        12824
+      ],
+      "segs": [],
+      "custom": [
+        "11",
+        "11"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 5,
+      "y": 617,
+      "pct": 4,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        913,
+        3883,
+        8023,
+        12703
+      ],
+      "segs": [],
+      "custom": [
+        "14",
+        "14"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 6,
+      "y": 1553,
+      "pct": 11,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Five tabs to check one price.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "Five tabs to check one price.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -923,
+        0,
+        2947,
+        7087,
+        11767
+      ],
+      "segs": [],
+      "custom": [
+        "15",
+        "15"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 7,
+      "y": 1778,
+      "pct": 13,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Five tabs to check one price.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "Five tabs to check one price.",
+          "o": 1
+        },
+        {
+          "t": "Another to find out why it moved.",
+          "o": 0.36
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1148,
+        0,
+        2722,
+        6862,
+        11542
+      ],
+      "segs": [],
+      "custom": [
+        "18",
+        "18"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 8,
+      "y": 2003,
+      "pct": 14,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Another to find out why it moved.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "Another to find out why it moved.",
+          "o": 1
+        },
+        {
+          "t": "A third to place the order.",
+          "o": 0.42
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1373,
+        0,
+        2497,
+        6637,
+        11317
+      ],
+      "segs": [],
+      "custom": [
+        "21",
+        "21"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 9,
+      "y": 2227,
+      "pct": 16,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "A third to place the order.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "A third to place the order.",
+          "o": 1
+        },
+        {
+          "t": "A spreadsheet to see how it went.",
+          "o": 0.47
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1597,
+        0,
+        2273,
+        6413,
+        11093
+      ],
+      "segs": [],
+      "custom": [
+        "23",
+        "23"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 10,
+      "y": 2452,
+      "pct": 18,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "A spreadsheet to see how it went.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "A spreadsheet to see how it went.",
+          "o": 1
+        },
+        {
+          "t": "Trahdo puts the whole day in one place.",
+          "o": 0.45
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1822,
+        0,
+        2048,
+        6188,
+        10868
+      ],
+      "segs": [],
+      "custom": [
+        "26",
+        "26"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 11,
+      "y": 2677,
+      "pct": 19,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Trahdo puts the whole day in one place.",
+          "dir": "light-on-dark",
+          "worst": 8.93,
+          "mean": 8.93
+        }
+      ],
+      "cues": [
+        {
+          "t": "Trahdo puts the whole day in one place.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -2047,
+        0,
+        1823,
+        5963,
+        10643
+      ],
+      "segs": [],
+      "custom": [
+        "29",
+        "29"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 12,
+      "y": 2736,
+      "pct": 20,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -2106,
+        -36,
+        1764,
+        5904,
+        10584
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 13,
+      "y": 3082,
+      "pct": 22,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -2452,
+        -382,
+        1418,
+        5558,
+        10238
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,13,14)"
+    },
+    {
+      "i": 14,
+      "y": 3427,
+      "pct": 25,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "flow",
+      "stages": [
+        -2797,
+        -727,
+        1073,
+        5213,
+        9893
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 15,
+      "y": 3773,
+      "pct": 27,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "flow",
+      "stages": [
+        -3143,
+        -1073,
+        727,
+        4867,
+        9547
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 16,
+      "y": 4118,
+      "pct": 30,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -3488,
+        -1418,
+        382,
+        4522,
+        9202
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 17,
+      "y": 4464,
+      "pct": 32,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -3834,
+        -1764,
+        36,
+        4176,
+        8856
+      ],
+      "segs": [],
+      "custom": [
+        "30",
+        "30"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 18,
+      "y": 4547,
+      "pct": 33,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -3917,
+        -1847,
+        0,
+        4093,
+        8773
+      ],
+      "segs": [],
+      "custom": [
+        "31",
+        "31"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 19,
+      "y": 4996,
+      "pct": 36,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -4366,
+        -2296,
+        0,
+        3644,
+        8324
+      ],
+      "segs": [],
+      "custom": [
+        "44",
+        "44"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(17,17,20)"
+    },
+    {
+      "i": 20,
+      "y": 5445,
+      "pct": 39,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -4815,
+        -2745,
+        0,
+        3195,
+        7875
+      ],
+      "segs": [],
+      "custom": [
+        "58",
+        "58"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 21,
+      "y": 5895,
+      "pct": 42,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -5265,
+        -3195,
+        0,
+        2745,
+        7425
+      ],
+      "segs": [],
+      "custom": [
+        "71",
+        "71"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 22,
+      "y": 6344,
+      "pct": 45,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -5714,
+        -3644,
+        0,
+        2296,
+        6976
+      ],
+      "segs": [],
+      "custom": [
+        "85",
+        "85"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 23,
+      "y": 6793,
+      "pct": 49,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -6163,
+        -4093,
+        0,
+        1847,
+        6527
+      ],
+      "segs": [],
+      "custom": [
+        "98",
+        "98"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 24,
+      "y": 6876,
+      "pct": 49,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -6246,
+        -4176,
+        -36,
+        1764,
+        6444
+      ],
+      "segs": [],
+      "custom": [
+        "100",
+        "100"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 25,
+      "y": 7222,
+      "pct": 52,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -6592,
+        -4522,
+        -382,
+        1418,
+        6098
+      ],
+      "segs": [],
+      "custom": [
+        "100",
+        "100"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(15,13,12)"
+    },
+    {
+      "i": 26,
+      "y": 7567,
+      "pct": 54,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "flow",
+      "stages": [
+        -6937,
+        -4867,
+        -727,
+        1073,
+        5753
+      ],
+      "segs": [],
+      "custom": [
+        "101",
+        "101"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 27,
+      "y": 7913,
+      "pct": 57,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "flow",
+      "stages": [
+        -7283,
+        -5213,
+        -1073,
+        727,
+        5407
+      ],
+      "segs": [],
+      "custom": [
+        "103",
+        "103"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 28,
+      "y": 8258,
+      "pct": 59,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -7628,
+        -5558,
+        -1418,
+        382,
+        5062
+      ],
+      "segs": [],
+      "custom": [
+        "105",
+        "105"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 29,
+      "y": 8604,
+      "pct": 62,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -7974,
+        -5904,
+        -1764,
+        36,
+        4716
+      ],
+      "segs": [],
+      "custom": [
+        "105",
+        "105"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 30,
+      "y": 8716,
+      "pct": 62,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -8086,
+        -6016,
+        -1876,
+        0,
+        4604
+      ],
+      "segs": [],
+      "custom": [
+        "105",
+        "105"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 31,
+      "y": 9441,
+      "pct": 68,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -8811,
+        -6741,
+        -2601,
+        0,
+        3879
+      ],
+      "segs": [],
+      "custom": [
+        "151",
+        "151"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(11,10,10)"
+    },
+    {
+      "i": 32,
+      "y": 10167,
+      "pct": 73,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -9537,
+        -7467,
+        -3327,
+        0,
+        3153
+      ],
+      "segs": [],
+      "custom": [
+        "213",
+        "213"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 33,
+      "y": 10893,
+      "pct": 78,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -10263,
+        -8193,
+        -4053,
+        0,
+        2427
+      ],
+      "segs": [],
+      "custom": [
+        "276",
+        "276"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 34,
+      "y": 11619,
+      "pct": 83,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -10989,
+        -8919,
+        -4779,
+        0,
+        1701
+      ],
+      "segs": [],
+      "custom": [
+        "338",
+        "338"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 35,
+      "y": 12344,
+      "pct": 88,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -11714,
+        -9644,
+        -5504,
+        0,
+        976
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 36,
+      "y": 13325,
+      "pct": 95,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.56,
+          "mean": 17.58
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12695,
+        -10625,
+        -6485,
+        -905,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 37,
+      "y": 13377,
+      "pct": 96,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.58,
+          "mean": 17.6
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12747,
+        -10677,
+        -6537,
+        -957,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,9,8)"
+    },
+    {
+      "i": 38,
+      "y": 13429,
+      "pct": 96,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.59,
+          "mean": 17.62
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12799,
+        -10729,
+        -6589,
+        -1009,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 39,
+      "y": 13481,
+      "pct": 97,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.59,
+          "mean": 17.62
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12851,
+        -10781,
+        -6641,
+        -1061,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 40,
+      "y": 13533,
+      "pct": 97,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.59,
+          "mean": 17.62
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12903,
+        -10833,
+        -6693,
+        -1113,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 41,
+      "y": 13585,
+      "pct": 97,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.59,
+          "mean": 17.62
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -12955,
+        -10885,
+        -6745,
+        -1165,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 42,
+      "y": 13959,
+      "pct": 100,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 17.59,
+          "mean": 17.62
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -13329,
+        -11259,
+        -7119,
+        -1539,
+        -369
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    }
+  ],
+  "consoleErrors": [],
+  "failed": []
+}

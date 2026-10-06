@@ -1,93 +1,25 @@
-@import "tailwindcss";
+/*
+ * Cascade order. Tailwind owns theme/base/utilities. The vendored Scroll-Craft engine CSS is
+ * imported into its own `sc` layer so its global resets cannot override anything we author.
+ * Our own styles are unlayered, so they win over both.
+ */
+@layer theme, base, sc, components, utilities;
 
+@import "tailwindcss";
+@import "./vendor/scrollcraft/scrollcraft.css" layer(sc);
+
+@import "@fontsource/geist-sans/400.css";
 @import "@fontsource/geist-sans/500.css";
 @import "@fontsource/geist-sans/600.css";
 @import "@fontsource/geist-sans/700.css";
-@import "@fontsource/geist-sans/800.css";
+@import "@fontsource/geist-mono/400.css";
 @import "@fontsource/geist-mono/500.css";
-@import "@fontsource/geist-mono/600.css";
 
-@theme {
-  --font-display: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
-
-  --color-ink: #0b0906;
-  --color-cream: #f4ead9;
-  --color-cream-muted: #c9beac;
-  --color-ember: #c8703c;
-  --color-ember-light: #e3a15f;
-  --color-paper: #faf8f4;
-}
-
-html {
-  color-scheme: dark;
-}
-
-body {
-  background-color: var(--color-ink);
-  color: var(--color-cream);
-  font-family: var(--font-sans);
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
-@keyframes bounce-y {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .status-dot {
-    animation: pulse-dot 1.8s ease-in-out 4;
-  }
-
-  .scroll-cue {
-    animation: bounce-y 1.6s ease-in-out infinite;
-  }
-
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-}
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+@import "./styles/chrome.css";
+@import "./styles/hero.css";
+@import "./styles/home.css";
+@import "./styles/close.css";
+@import "./styles/pages.css";
+@import "./styles/about.css";

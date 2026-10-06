@@ -1,0 +1,398 @@
+/* ============================================================ shared pages ==
+   Security, Careers, 404 and the sections About shares with them. Grounds are the same
+   drift stops the home page uses: graphite for Market Intelligence, warm for the App. */
+
+.about,
+.security,
+.careers,
+.notfound {
+  --hairline: color-mix(in oklab, var(--sc-ink) 12%, transparent);
+}
+
+.page-hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: clip;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+  max-width: 64rem;
+}
+.page-hero__inner .display {
+  max-width: 17ch;
+}
+.page-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.8rem;
+  margin-top: 0.5rem;
+}
+.page-hero__line {
+  position: absolute;
+  left: -2%;
+  bottom: 5%;
+  width: 104%;
+  height: 28%;
+  max-width: none;
+  pointer-events: none;
+}
+.page-hero__line path {
+  fill: none;
+  stroke: color-mix(in oklab, var(--sc-accent) 40%, transparent);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.cta-block {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 2rem) var(--sc-gutter) 4rem;
+}
+.cta-block__inner {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: start;
+  max-width: 60rem;
+}
+.cta-block__inner .display {
+  max-width: 15ch;
+}
+.cta-block__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.8rem;
+  margin-top: 0.4rem;
+}
+.cta-block .btn[aria-disabled='true'] {
+  white-space: normal;
+  line-height: 1.2;
+  padding-block: 0.7rem;
+}
+
+/* Careers: a flat session and a waiting cursor. */
+.flatline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22%;
+  height: 1px;
+  background: color-mix(in oklab, var(--sc-ink) 22%, transparent);
+  pointer-events: none;
+}
+.flatline b {
+  position: absolute;
+  right: var(--sc-gutter);
+  top: -0.7rem;
+  width: 2px;
+  height: 1.4rem;
+  background: var(--sc-accent);
+  animation: cursor-blink 1.15s steps(1) infinite;
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flatline b {
+    animation: none;
+  }
+}
+
+/* 404: the line leaves the chart. */
+.dropline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.dropline path {
+  fill: none;
+  stroke: color-mix(in oklab, var(--sc-accent) 60%, transparent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+/* Beliefs / principles / how we build: a ruled list, not a card grid. */
+.beliefs {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.beliefs__inner {
+  width: 100%;
+  max-width: 112rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.beliefs__head {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+.beliefs__head .display {
+  max-width: 13ch;
+}
+.beliefs__list {
+  margin: 0;
+  display: grid;
+}
+.beliefs__row {
+  display: grid;
+  gap: 0.6rem 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--hairline);
+}
+.beliefs__row:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+.beliefs__row dt,
+.beliefs__row dd {
+  margin: 0;
+}
+@media (min-width: 880px) {
+  .beliefs__inner {
+    grid-template-columns: 1fr 1.25fr;
+  }
+  .beliefs__row {
+    grid-template-columns: 1fr 1.3fr;
+    align-items: baseline;
+  }
+}
+
+.note {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.note__inner {
+  display: grid;
+  gap: 1.6rem;
+  justify-items: start;
+  max-width: 60rem;
+}
+.note__inner .display {
+  max-width: 18ch;
+}
+.note__body {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 48rem;
+}
+.note__sign {
+  margin: 0.4rem 0 0;
+  font: 500 0.78rem var(--sc-font-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+}
+
+/* ============================================================== security == */
+.lanes {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.lanes__inner {
+  width: 100%;
+  max-width: 112rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+.lanes__head {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+.lanes__head .display {
+  max-width: 16ch;
+}
+.lanes__grid {
+  display: grid;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.lane {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.2vw, 2.75rem);
+}
+.lane--mi {
+  background: var(--mi-ground);
+  --soft: var(--mi-ink-soft);
+  --lane: var(--mi-accent);
+}
+.lane--app {
+  background: var(--app-ground);
+  --soft: var(--app-ink-soft);
+  --lane: var(--app-accent);
+}
+.lane__name {
+  margin: 0;
+  color: var(--lane);
+}
+.lane__title {
+  max-width: 17ch;
+}
+.lane__steps {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.lane__steps li {
+  position: relative;
+  padding: 0 0 1.5rem 2.1rem;
+}
+.lane__steps li::before {
+  content: '';
+  position: absolute;
+  left: 0.42rem;
+  top: 1.1rem;
+  bottom: -0.1rem;
+  width: 1px;
+  background: color-mix(in oklab, var(--lane) 45%, transparent);
+}
+.lane__steps li:last-child {
+  padding-bottom: 0;
+}
+.lane__steps li:last-child::before {
+  display: none;
+}
+.lane__node {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--lane);
+  background: var(--sc-canvas);
+}
+.lane__node--end {
+  background: var(--lane);
+}
+.lane--mi .lane__node--end {
+  background: transparent;
+  border-style: dashed;
+  border-color: color-mix(in oklab, var(--sc-ink) 45%, transparent);
+}
+.lane__steps h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--sc-ink);
+}
+.lane__steps .body {
+  font-size: 0.95rem;
+}
+@media (min-width: 880px) {
+  .lanes__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.account {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.account__inner {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: start;
+  max-width: 60rem;
+}
+.account__inner .display {
+  max-width: 15ch;
+}
+
+.trust {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) 4rem;
+}
+.trust__inner {
+  width: 100%;
+  max-width: 112rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.trust__head {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+.trust__head .display {
+  max-width: 14ch;
+}
+.trust__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+.trust__list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--hairline);
+}
+.trust__list li:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+.trust__list .display {
+  margin-bottom: 0.4rem;
+}
+.tag {
+  flex: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+  white-space: nowrap;
+}
+.tag a {
+  display: inline-flex;
+  gap: 0.3rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sc-ink);
+}
+@media (min-width: 880px) {
+  .trust__inner {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}

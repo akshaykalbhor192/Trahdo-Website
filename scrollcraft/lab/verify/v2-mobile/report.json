@@ -1,0 +1,1533 @@
+{
+  "doc": {
+    "height": 15235,
+    "vh": 844,
+    "acts": [
+      "pin",
+      "pin",
+      "flow",
+      "pan",
+      "flow",
+      "pin",
+      "pin"
+    ],
+    "world": null
+  },
+  "report": [
+    {
+      "i": 0,
+      "y": 15,
+      "pct": 0,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1589,
+        4768,
+        9091,
+        13480
+      ],
+      "segs": [],
+      "custom": [
+        "0",
+        "0"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 1,
+      "y": 161,
+      "pct": 1,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1443,
+        4622,
+        8945,
+        13334
+      ],
+      "segs": [],
+      "custom": [
+        "9",
+        "9"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 2,
+      "y": 307,
+      "pct": 2,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1297,
+        4476,
+        8799,
+        13188
+      ],
+      "segs": [],
+      "custom": [
+        "18",
+        "18"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 3,
+      "y": 453,
+      "pct": 3,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1151,
+        4330,
+        8653,
+        13042
+      ],
+      "segs": [],
+      "custom": [
+        "26",
+        "26"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 4,
+      "y": 599,
+      "pct": 4,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        1005,
+        4184,
+        8507,
+        12896
+      ],
+      "segs": [],
+      "custom": [
+        "35",
+        "35"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 5,
+      "y": 745,
+      "pct": 5,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        0,
+        859,
+        4038,
+        8361,
+        12750
+      ],
+      "segs": [],
+      "custom": [
+        "44",
+        "44"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 6,
+      "y": 1626,
+      "pct": 11,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Five tabs to check one price.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "Five tabs to check one price.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -866,
+        0,
+        3157,
+        7480,
+        11869
+      ],
+      "segs": [],
+      "custom": [
+        "45",
+        "45"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 7,
+      "y": 1836,
+      "pct": 13,
+      "settled": true,
+      "contrast": [],
+      "cues": [
+        {
+          "t": "Five tabs to check one price.",
+          "o": 0.66
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1076,
+        0,
+        2947,
+        7270,
+        11659
+      ],
+      "segs": [],
+      "custom": [
+        "47",
+        "47"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 8,
+      "y": 2047,
+      "pct": 14,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Another to find out why it moved.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "Another to find out why it moved.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1287,
+        0,
+        2736,
+        7059,
+        11448
+      ],
+      "segs": [],
+      "custom": [
+        "49",
+        "49"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 9,
+      "y": 2257,
+      "pct": 16,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "A third to place the order.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "A third to place the order.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1497,
+        0,
+        2526,
+        6849,
+        11238
+      ],
+      "segs": [],
+      "custom": [
+        "50",
+        "50"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 10,
+      "y": 2468,
+      "pct": 17,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "A spreadsheet to see how it went.",
+          "dir": "light-on-dark",
+          "worst": 17.46,
+          "mean": 17.46
+        }
+      ],
+      "cues": [
+        {
+          "t": "A spreadsheet to see how it went.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -1708,
+        0,
+        2315,
+        6638,
+        11027
+      ],
+      "segs": [],
+      "custom": [
+        "52",
+        "52"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 11,
+      "y": 2679,
+      "pct": 19,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "Trahdo puts the whole day in one place.",
+          "dir": "light-on-dark",
+          "worst": 8.93,
+          "mean": 8.93
+        }
+      ],
+      "cues": [
+        {
+          "t": "Trahdo puts the whole day in one place.",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 100% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -1919,
+        0,
+        2104,
+        6427,
+        10816
+      ],
+      "segs": [],
+      "custom": [
+        "54",
+        "54"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 12,
+      "y": 2742,
+      "pct": 19,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 100% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -1982,
+        -41,
+        2041,
+        6364,
+        10753
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,11,11)"
+    },
+    {
+      "i": 13,
+      "y": 3142,
+      "pct": 22,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 100% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -2382,
+        -441,
+        1641,
+        5964,
+        10353
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,13,14)"
+    },
+    {
+      "i": 14,
+      "y": 3542,
+      "pct": 25,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 27.16% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -2782,
+        -841,
+        1241,
+        5564,
+        9953
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 15,
+      "y": 3942,
+      "pct": 27,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -3182,
+        -1241,
+        841,
+        5164,
+        9553
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 16,
+      "y": 4341,
+      "pct": 30,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -3581,
+        -1640,
+        442,
+        4765,
+        9154
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 17,
+      "y": 4741,
+      "pct": 33,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -3981,
+        -2040,
+        42,
+        4365,
+        8754
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 18,
+      "y": 4826,
+      "pct": 34,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -30
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -4066,
+        -2125,
+        0,
+        4280,
+        8669
+      ],
+      "segs": [],
+      "custom": [
+        "55",
+        "55"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,14,16)"
+    },
+    {
+      "i": 19,
+      "y": 5248,
+      "pct": 36,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -316
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -4488,
+        -2547,
+        0,
+        3858,
+        8247
+      ],
+      "segs": [],
+      "custom": [
+        "64",
+        "64"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(17,17,20)"
+    },
+    {
+      "i": 20,
+      "y": 5669,
+      "pct": 39,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -602
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -4909,
+        -2968,
+        0,
+        3437,
+        7826
+      ],
+      "segs": [],
+      "custom": [
+        "73",
+        "73"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 21,
+      "y": 6090,
+      "pct": 42,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -888
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -5330,
+        -3389,
+        0,
+        3016,
+        7405
+      ],
+      "segs": [],
+      "custom": [
+        "81",
+        "81"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 22,
+      "y": 6511,
+      "pct": 45,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1174
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -5751,
+        -3810,
+        0,
+        2595,
+        6984
+      ],
+      "segs": [],
+      "custom": [
+        "90",
+        "90"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 23,
+      "y": 6933,
+      "pct": 48,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1460
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -6173,
+        -4232,
+        0,
+        2173,
+        6562
+      ],
+      "segs": [],
+      "custom": [
+        "99",
+        "99"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 24,
+      "y": 7019,
+      "pct": 49,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pan",
+      "stages": [
+        -6259,
+        -4318,
+        -42,
+        2087,
+        6476
+      ],
+      "segs": [],
+      "custom": [
+        "100",
+        "100"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(18,19,22)"
+    },
+    {
+      "i": 25,
+      "y": 7428,
+      "pct": 52,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -6668,
+        -4727,
+        -451,
+        1678,
+        6067
+      ],
+      "segs": [],
+      "custom": [
+        "100",
+        "100"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(15,13,12)"
+    },
+    {
+      "i": 26,
+      "y": 7837,
+      "pct": 54,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -7077,
+        -5136,
+        -860,
+        1269,
+        5658
+      ],
+      "segs": [],
+      "custom": [
+        "101",
+        "101"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 27,
+      "y": 8246,
+      "pct": 57,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -7486,
+        -5545,
+        -1269,
+        860,
+        5249
+      ],
+      "segs": [],
+      "custom": [
+        "103",
+        "103"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 28,
+      "y": 8655,
+      "pct": 60,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -7895,
+        -5954,
+        -1678,
+        451,
+        4840
+      ],
+      "segs": [],
+      "custom": [
+        "104",
+        "104"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 29,
+      "y": 9063,
+      "pct": 63,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8303,
+        -6362,
+        -2086,
+        43,
+        4432
+      ],
+      "segs": [],
+      "custom": [
+        "105",
+        "105"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 30,
+      "y": 9177,
+      "pct": 64,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8417,
+        -6476,
+        -2200,
+        0,
+        4318
+      ],
+      "segs": [],
+      "custom": [
+        "105",
+        "105"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(14,10,7)"
+    },
+    {
+      "i": 31,
+      "y": 9858,
+      "pct": 69,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -9098,
+        -7157,
+        -2881,
+        0,
+        3637
+      ],
+      "segs": [],
+      "custom": [
+        "151",
+        "151"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(11,10,10)"
+    },
+    {
+      "i": 32,
+      "y": 10538,
+      "pct": 73,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -9778,
+        -7837,
+        -3561,
+        0,
+        2957
+      ],
+      "segs": [],
+      "custom": [
+        "213",
+        "213"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 33,
+      "y": 11219,
+      "pct": 78,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -10459,
+        -8518,
+        -4242,
+        0,
+        2276
+      ],
+      "segs": [],
+      "custom": [
+        "276",
+        "276"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 34,
+      "y": 11900,
+      "pct": 83,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -11140,
+        -9199,
+        -4923,
+        0,
+        1595
+      ],
+      "segs": [],
+      "custom": [
+        "338",
+        "338"
+      ],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 35,
+      "y": 12580,
+      "pct": 87,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -11820,
+        -9879,
+        -5603,
+        0,
+        915
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 36,
+      "y": 13500,
+      "pct": 94,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.79,
+          "mean": 17.53
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12740,
+        -10799,
+        -6523,
+        -849,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(10,10,11)"
+    },
+    {
+      "i": 37,
+      "y": 13549,
+      "pct": 94,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.72,
+          "mean": 17.55
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12789,
+        -10848,
+        -6572,
+        -898,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(12,9,8)"
+    },
+    {
+      "i": 38,
+      "y": 13597,
+      "pct": 94,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.72,
+          "mean": 17.56
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12837,
+        -10896,
+        -6620,
+        -946,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 39,
+      "y": 13646,
+      "pct": 95,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.72,
+          "mean": 17.56
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12886,
+        -10945,
+        -6669,
+        -995,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 40,
+      "y": 13694,
+      "pct": 95,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.72,
+          "mean": 17.56
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12934,
+        -10993,
+        -6717,
+        -1043,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 41,
+      "y": 13743,
+      "pct": 95,
+      "settled": true,
+      "contrast": [
+        {
+          "t": "15:30 · Market closedThat was a whole da",
+          "dir": "light-on-dark",
+          "worst": 14.72,
+          "mean": 17.56
+        }
+      ],
+      "cues": [
+        {
+          "t": "15:30 · Market closedThat was a whole day, in ",
+          "o": 1
+        }
+      ],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -12983,
+        -11042,
+        -6766,
+        -1092,
+        0
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    },
+    {
+      "i": 42,
+      "y": 14391,
+      "pct": 100,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1490
+      ],
+      "wipes": [
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "-",
+      "stages": [
+        -13631,
+        -11690,
+        -7414,
+        -1740,
+        -643
+      ],
+      "segs": [],
+      "custom": [
+        "375",
+        "375"
+      ],
+      "customHold": true,
+      "seg": null,
+      "segp": null,
+      "bg": "rgb(13,9,7)"
+    }
+  ],
+  "consoleErrors": [],
+  "failed": []
+}
