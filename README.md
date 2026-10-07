@@ -1,7 +1,8 @@
 # Trahdo
 
-Marketing site for Trahdo: one place to research, trade, and track a portfolio across
-Trahdo Market Intelligence and Trahdo App.
+Marketing site for Trahdo: one place to research the market, trade it, and understand futures
+and options risk. Three products: **Trahdo Market Intelligence** (live), **Trahdo App** (coming
+soon) and **F&O Advisor** (coming soon).
 
 ## Stack
 
@@ -33,7 +34,10 @@ Scroll position is the time of day.
   panels describe (volume above 2.5x the 30-minute average, a move beyond 1.5% in 15 minutes).
 - `src/session/clock.ts` maps scroll position to a session minute using `data-t0` / `data-t1`
   on each act.
-- `src/components/home/*` are the seven acts: Hero, Tabs, Place, Research, Trade, Peak, Close.
+- `src/components/home/*` are the eight acts: Hero, Tabs, Place (the three products), Research,
+  Trade, Advisor, Peak, Close.
+- `src/session/payoff.ts` is the option-payoff maths behind the F&O Advisor explainer. It runs on
+  illustrative numbers (spot 100, made-up strikes and premiums) and is labelled as such.
 - `src/components/home/SessionRail.tsx` is the fixed bottom rail (the day as a line, with the
   playhead at the current scroll position).
 
@@ -49,14 +53,15 @@ regions and reduced-motion visitors alone. `scrollcraft/lab/pace.mjs` measures i
 
 ## Where to edit things
 
-- **Destinations** (`src/lib/links.ts`): Market Intelligence URL, Trahdo App early-access link,
-  security contact, status page, careers contact, social links. A `null` renders an honest
+- **Destinations** (`src/lib/links.ts`): Market Intelligence URL, notify-me links for Trahdo App
+  and F&O Advisor, security contact, status page, careers contact, social links. A `null` renders an honest
   "coming" state instead of a dead link. Fill these in as they go live.
 - **Company claims** (`src/content.ts`): the timeline, principles, security statements and trust
   items. All of it was carried over from the previous site and is **owner-supplied and
   unverified by the redesign**. Confirm each statement is true before launch.
 - **Design tokens** (`src/styles/tokens.css`): colours for Market Intelligence (graphite and
-  green), Trahdo App (warm ink and ember), and the shared radius and spacing scales.
+  green), Trahdo App (warm ink and ember), F&O Advisor (deep ink-blue and blue), and the shared
+  radius and spacing scales.
 
 ## Scroll-Craft
 

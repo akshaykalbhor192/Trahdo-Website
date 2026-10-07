@@ -75,7 +75,7 @@ const instances = (page) => page.evaluate(() => window.ScrollCraft.instances.len
 
   await page.goto(BASE + '/', { waitUntil: 'networkidle' })
   await settle(page)
-  await page.locator('.rail__tick[aria-label="Jump to Trade"]').click()
+  await page.locator('.rail__tick[aria-label="Jump to Trade & F&O"]').click()
   await settle(page, 700)
   const trade = await page.evaluate(() => Math.abs(document.getElementById('trade').getBoundingClientRect().top))
   ok('rail tick jumps to Trade', trade < 8, String(trade))
@@ -110,6 +110,52 @@ const instances = (page) => page.evaluate(() => window.ScrollCraft.instances.len
   ok('close position -> flat', (await pos()) === 'Flat')
   const spread = await page.locator('.ladder__spread').innerText()
   ok('spread shown before any click', /Spread 0\.03/.test(spread), spread)
+  ok('no console errors', errors.length === 0, errors.join(' | '))
+  await ctx.close()
+}
+
+// ---- 3b. the F&O Advisor explainer ----------------------------------------------------
+{
+  const { ctx, page, errors } = await fresh()
+  await page.goto(BASE + '/#advisor', { waitUntil: 'networkidle' })
+  await settle(page, 900)
+  const facts = async () => (await page.locator('.lab__facts dd').allInnerTexts()).map((t) => t.trim())
+  const choose = (name) => page.locator('.lab__choice', { hasText: name }).click()
+  const setSpot = (v) =>
+    page.locator('.lab__slider input').evaluate((el, value) => {
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, value)
+      el.dispatchEvent(new Event('input', { bubbles: true }))
+    }, String(v))
+
+  await setSpot(105)
+  let f = await facts()
+  ok('buy a call @105: P&L +2.00', f[0] === '+2.00', f[0])
+  ok('buy a call: most you can lose 3.00', f[1] === '3.00', f[1])
+  ok('buy a call: no limit on the upside', f[2] === 'No limit', f[2])
+  ok('buy a call: break-even 103.00', f[3] === '103.00', f[3])
+
+  await choose('Buy a put')
+  await setSpot(95)
+  f = await facts()
+  ok('buy a put @95: P&L +2.20', f[0] === '+2.20', f[0])
+  ok('buy a put: break-even 97.20', f[3] === '97.20', f[3])
+
+  await choose('Bull call spread')
+  await setSpot(108)
+  f = await facts()
+  ok('bull call spread: capped gain 3.90', f[2] === '3.90', f[2])
+  ok('bull call spread: most you can lose 2.10', f[1] === '2.10', f[1])
+  ok('bull call spread @108: P&L +3.90', f[0] === '+3.90', f[0])
+
+  await choose('Sell a put')
+  await setSpot(90)
+  f = await facts()
+  ok('sell a put: most you can make 1.60', f[2] === '1.60', f[2])
+  ok('sell a put: loss is bounded and large (96.40)', f[1] === '96.40', f[1])
+  ok('sell a put @90: P&L -6.40', f[0] === '-6.40', f[0])
+  const says = await page.locator('.lab__says').innerText()
+  ok('plain-language text matches the position', /collect 1\.60/.test(says), says.slice(0, 60))
+  ok('chart is labelled illustrative', /Illustrative/i.test(await page.locator('.lab__head').innerText()))
   ok('no console errors', errors.length === 0, errors.join(' | '))
   await ctx.close()
 }

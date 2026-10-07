@@ -3,9 +3,10 @@ import { LINKS } from '../../lib/links'
 import { Arrow, External, Mark } from '../Mark'
 
 /*
- * Act 3. The turn: two products, one session. Both product identities appear for the first
- * time, side by side, each on its own ground. The warm pane arrives by a wipe, because this
- * is the beat where one thing becomes two halves of one thing.
+ * Act 3. The turn: three products, one session. Each product identity appears for the first
+ * time, side by side, on its own ground. Market Intelligence is live; Trahdo App and F&O
+ * Advisor are coming soon, and say so. The two warmer panes arrive by a wipe, because this is
+ * the beat where one thing becomes three parts of one thing.
  */
 export default function Place() {
   return (
@@ -21,11 +22,10 @@ export default function Place() {
       <div className="place__inner">
         <div className="place__head" data-sc-in data-sc-stagger="70">
           <h2 id="place-title" className="display display--lg">
-            Research it. Trade it. Track it.
+            Research it. Trade it. Know the risk.
           </h2>
           <p className="lede">
-            Research, execution and portfolio tracking that all speak to each other, instead of
-            fighting for a tab.
+            Three products for one market day, built to fit together instead of fighting for a tab.
           </p>
         </div>
 
@@ -39,9 +39,8 @@ export default function Place() {
             </header>
             <h3 className="display display--md">Markets move fast. Stay ahead of the close.</h3>
             <p className="body">
-              One dashboard for live indices, AI-generated briefs, and alerts that catch what
-              you would miss. Real-time NSE/BSE data, smart alerts, and an AI copilot that
-              explains why.
+              One dashboard for live indices, AI-generated briefs, and alerts that catch what you would
+              miss. Real-time NSE/BSE data, smart alerts, and an AI copilot that explains why.
             </p>
             <div className="product__foot">
               <span className="product__status">
@@ -54,7 +53,7 @@ export default function Place() {
             </div>
           </article>
 
-          <article className="product product--app" data-sc-reveal="left" data-sc-reveal-at="0.22 0.5">
+          <article className="product product--app" data-sc-reveal="left" data-sc-reveal-at="0.2 0.46">
             <header className="product__id">
               <Mark />
               <span>
@@ -63,21 +62,50 @@ export default function Place() {
             </header>
             <h3 className="display display--md">A terminal built for speed.</h3>
             <p className="body">
-              Level 2 order books, scanners, and one-click execution. A full trading terminal
-              for people who live in the market all day.
+              Buy and sell with the live market in front of you, in one click. A full trading terminal for
+              people who live in the market all day.
             </p>
             <div className="product__foot">
               <span className="product__status">
-                <i /> Early access
+                <i /> Coming soon
               </span>
-              {LINKS.appEarlyAccess ? (
-                <a className="btn btn--primary" href={LINKS.appEarlyAccess} target="_blank" rel="noopener noreferrer">
-                  Join early access
+              {LINKS.appNotify ? (
+                <a className="btn btn--primary" href={LINKS.appNotify} target="_blank" rel="noopener noreferrer">
+                  Get notified
                   <External />
                 </a>
               ) : (
                 <Link className="btn btn--ghost" to="/#trade">
-                  See the ticket
+                  Preview the ticket
+                  <Arrow />
+                </Link>
+              )}
+            </div>
+          </article>
+
+          <article className="product product--adv" data-sc-reveal="left" data-sc-reveal-at="0.3 0.56">
+            <header className="product__id">
+              <Mark />
+              <span>
+                trahdo <small>F&amp;O Advisor</small>
+              </span>
+            </header>
+            <h3 className="display display--md">Know the risk before you trade.</h3>
+            <p className="body">
+              F&amp;O Advisor explains futures and options positions and their risk in plain language.
+            </p>
+            <div className="product__foot">
+              <span className="product__status">
+                <i /> Coming soon
+              </span>
+              {LINKS.advisorNotify ? (
+                <a className="btn btn--adv" href={LINKS.advisorNotify} target="_blank" rel="noopener noreferrer">
+                  Get notified
+                  <External />
+                </a>
+              ) : (
+                <Link className="btn btn--ghost" to="/#advisor">
+                  Try the explainer
                   <Arrow />
                 </Link>
               )}

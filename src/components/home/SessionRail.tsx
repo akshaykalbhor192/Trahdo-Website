@@ -14,7 +14,7 @@ import { useSessionMinute, useSessionTime } from '../../session/clock'
 const stops = [
   { id: 'open', label: 'Open', at: 0, from: 0 },
   { id: 'research', label: 'Research', at: 55, from: 55 },
-  { id: 'trade', label: 'Trade', at: 100, from: 100 },
+  { id: 'trade', label: 'Trade & F&O', at: 100, from: 100 },
   { id: 'session', label: 'One moment', at: 150, from: 105 },
   { id: 'get-started', label: 'Bell', at: SESSION_MINUTES, from: SESSION_MINUTES - 1 },
 ]

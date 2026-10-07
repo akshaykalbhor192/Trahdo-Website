@@ -175,7 +175,7 @@
 }
 .hero__lede {
   --soft: color-mix(in oklab, var(--sc-ink) 72%, transparent);
-  max-width: 36ch;
+  max-width: 44ch;
   text-align: center;
 }
 .hero__cta {

@@ -13,7 +13,7 @@ export default function Footer() {
               <span>trahdo</span>
             </Link>
             <p className="footer__lede">
-              Two products, one session. Research it, trade it, track it.
+              Three products, one session. Research it, trade it, understand the risk.
             </p>
             {LINKS.social.length ? (
               <ul className="footer__social">
@@ -39,6 +39,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link to="/#trade">Trahdo App</Link>
+                </li>
+                <li>
+                  <Link to="/#advisor">F&amp;O Advisor</Link>
                 </li>
               </ul>
             </div>
@@ -67,7 +70,7 @@ export default function Footer() {
         <div className="footer__bottom">
           <p>
             Investing involves risk, including possible loss of principal. Trahdo Market
-            Intelligence and Trahdo App are products of Trahdo. Not FDIC insured. Not bank
+            Intelligence, Trahdo App and F&amp;O Advisor are products of Trahdo. Not FDIC insured. Not bank
             guaranteed. May lose value.
           </p>
           <div className="footer__meta">

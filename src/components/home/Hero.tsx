@@ -93,13 +93,13 @@ export default function Hero() {
         <div className="hero__copy">
           <Link className="hero__announce" to="/#products">
             <i aria-hidden="true" />
-            Now in early access
+            Market Intelligence is live
             <Arrow size={14} />
           </Link>
           <h1 id="hero-title" className="display display--xl hero__title">
             Investing built for the way markets <em>actually move.</em>
           </h1>
-          <p className="lede hero__lede">One place to research, trade and track your portfolio.</p>
+          <p className="lede hero__lede">Research the market, trade it, and understand your futures and options risk, in one place.</p>
           <div className="hero__cta">
             <Link to="/#get-started" className="btn btn--primary btn--lift">
               {CTA_LABEL}

@@ -39,6 +39,13 @@
   --app-accent-deep: #c8703c;
   --app-ink-soft: #b3a89c;
 
+  /* F&O Advisor identity */
+  --adv-ground: #0c1118;
+  --adv-surface: #131b25;
+  --adv-line: #243142;
+  --adv-accent: #7db4ff;
+  --adv-ink-soft: #a5b0bf;
+
   /* Semantic numbers */
   --up: #3ddc84;
   --down: #ff8274;

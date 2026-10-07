@@ -138,31 +138,47 @@ export default function Trade() {
       data-sc-act="flow"
       data-sc-drift="#0e0a07"
       data-t0="100"
-      data-t1="105"
+      data-t1="103"
       aria-labelledby="trade-title"
     >
       <img className="trade__light" src={emberLight} width="1540" height="1021" alt="" loading="lazy" />
       <div className="trade__inner">
         <div className="trade__copy" data-sc-in data-sc-stagger="70">
-          <p className="label">Trahdo App · Early access</p>
+          <p className="label">Trahdo App · Coming soon</p>
           <h2 id="trade-title" className="display display--lg">
             A terminal built for speed.
           </h2>
           <p className="lede">
-            Level 2 order books, scanners, and one-click execution. The spread is on screen before
-            you click, so it is never hidden in the fill.
+            Trahdo App is where you buy and sell. Watch the live market, see the price and the spread,
+            and place your order in one click.
           </p>
+
+          <ul className="brief">
+            <li>
+              <b>Live market</b>
+              <span>Prices and order depth for the stock in front of you, updating as the market moves.</span>
+            </li>
+            <li>
+              <b>Buy</b>
+              <span>One click to buy at the best available price.</span>
+            </li>
+            <li>
+              <b>Sell</b>
+              <span>One click to sell, with the spread shown before you click, never hidden in the fill.</span>
+            </li>
+          </ul>
+
           <p className="body trade__how">
-            Try the ticket. The market on the right is simulated: it ticks, the spread moves with
-            it, and your fill is the price you saw.
+            Try it. The market in the ticket is simulated: it ticks, the spread moves with it, and your fill is
+            the price you saw. No real orders.
           </p>
-          {LINKS.appEarlyAccess ? (
-            <a className="btn btn--primary" href={LINKS.appEarlyAccess} target="_blank" rel="noopener noreferrer">
-              Join early access
+          {LINKS.appNotify ? (
+            <a className="btn btn--primary" href={LINKS.appNotify} target="_blank" rel="noopener noreferrer">
+              Get notified
               <External />
             </a>
           ) : (
-            <p className="trade__soon label">Early-access sign-up link coming</p>
+            <p className="trade__soon label">Launch details coming</p>
           )}
         </div>
 
@@ -173,6 +189,11 @@ export default function Trade() {
           </header>
 
           <div className="ladder" aria-label="Order book, five levels each side">
+            <div className="ladder__cols label" aria-hidden="true">
+              <span>Price</span>
+              <span>Quantity</span>
+            </div>
+            <p className="ladder__tag ladder__tag--ask label">Asks · sellers</p>
             <ul className="ladder__side ladder__side--ask">
               {asks.map((l) => (
                 <li key={`a${l.price.toFixed(2)}`}>
@@ -185,6 +206,7 @@ export default function Trade() {
             <div className="ladder__spread mono">
               Spread {SPREAD.toFixed(2)} · {((SPREAD / bid) * 100).toFixed(2)}%
             </div>
+            <p className="ladder__tag ladder__tag--bid label">Bids · buyers</p>
             <ul className="ladder__side ladder__side--bid">
               {bids.map((l) => (
                 <li key={`b${l.price.toFixed(2)}`}>

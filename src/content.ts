@@ -27,12 +27,12 @@ export const timeline: Milestone[] = [
   {
     year: '2023',
     title: 'A trading terminal takes shape',
-    body: 'Level 2 order books, scanners and one-click execution, for people who live in the market all day. The start of what is now Trahdo App.',
+    body: 'Buying, selling and the live market on one screen, for people who live in the market all day. The start of what is now Trahdo App.',
   },
   {
     year: 'Today',
-    title: 'Two products, one mission',
-    body: 'Market Intelligence is live. Trahdo App is in early access. We are just getting started.',
+    title: 'Three products, one mission',
+    body: 'Market Intelligence is live. Trahdo App and F&O Advisor are coming soon. We are just getting started.',
   },
 ]
 
@@ -95,7 +95,7 @@ export const trustCentre = [
   },
   {
     title: 'Status and incidents',
-    body: 'Live uptime and a full history of past incidents, across both products, without the corporate spin.',
+    body: 'Live uptime and a full history of past incidents, across our products, without the corporate spin.',
   },
   {
     title: 'Licensing and audits',

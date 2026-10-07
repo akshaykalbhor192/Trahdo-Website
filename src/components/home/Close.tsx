@@ -48,7 +48,7 @@ export default function Close() {
           <h2 id="close-title" className="display display--xl">
             That was a whole day, in one place.
           </h2>
-          <p className="lede">Research it. Trade it. Track what it did. Start with the product that is live today.</p>
+          <p className="lede">Research it. Trade it. Know the risk. Start with the product that is live today.</p>
 
           <div className="close__doors">
             <article className="door door--mi">
@@ -75,16 +75,38 @@ export default function Close() {
                 </span>
               </header>
               <p className="door__status">
-                <i /> Early access
+                <i /> Coming soon
               </p>
-              {LINKS.appEarlyAccess ? (
-                <a className="btn btn--primary" href={LINKS.appEarlyAccess} target="_blank" rel="noopener noreferrer">
-                  Join early access
+              {LINKS.appNotify ? (
+                <a className="btn btn--primary" href={LINKS.appNotify} target="_blank" rel="noopener noreferrer">
+                  Get notified
                   <Arrow />
                 </a>
               ) : (
                 <span className="btn" aria-disabled="true" role="note">
-                  Early-access link coming
+                  Launch details coming
+                </span>
+              )}
+            </article>
+
+            <article className="door door--adv">
+              <header className="door__id">
+                <Mark />
+                <span>
+                  trahdo <small>F&amp;O Advisor</small>
+                </span>
+              </header>
+              <p className="door__status">
+                <i /> Coming soon
+              </p>
+              {LINKS.advisorNotify ? (
+                <a className="btn btn--adv" href={LINKS.advisorNotify} target="_blank" rel="noopener noreferrer">
+                  Get notified
+                  <Arrow />
+                </a>
+              ) : (
+                <span className="btn" aria-disabled="true" role="note">
+                  Launch details coming
                 </span>
               )}
             </article>

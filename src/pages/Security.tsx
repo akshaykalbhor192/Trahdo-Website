@@ -6,7 +6,7 @@ import { LINKS, CTA_LABEL } from '../lib/links'
 import { securityLanes, trustCentre } from '../content'
 
 /*
- * Security. Two products do different jobs, so they are protected differently. Each lane is
+ * Security. The products do different jobs, so they are protected differently. Each lane is
  * an ordered path: Market Intelligence ends at a wall (it never reaches your money), Trahdo
  * App passes every order through its checks. The steps are the previous site's own claims,
  * drawn as a path rather than a settings panel (the old panel was a painted fake).
@@ -50,8 +50,8 @@ export default function Security() {
             </h1>
             <p className="lede">
               Trahdo Market Intelligence keeps you informed without ever touching your money.
-              Trahdo App executes real orders, and carries the custody-grade protections that
-              come with it. One account, one security standard, two very different jobs.
+              Trahdo App, coming soon, executes real orders, and carries the custody-grade
+              protections that come with it. One account, one security standard, different jobs.
             </p>
             <div className="page-hero__row">
               <a href="#protections" className="btn btn--primary">
@@ -69,7 +69,7 @@ export default function Security() {
         <section id="protections" className="lanes act" data-sc-act="flow" data-sc-drift="#101114" aria-labelledby="lanes-title">
           <div className="lanes__inner">
             <div className="lanes__head" data-sc-in data-sc-stagger="70">
-              <p className="label">Two products, one standard</p>
+              <p className="label">One standard, different jobs</p>
               <h2 id="lanes-title" className="display display--lg">
                 Protected differently, because they do different jobs.
               </h2>
@@ -99,10 +99,10 @@ export default function Security() {
             <div className="trust__head" data-sc-in data-sc-stagger="70">
               <p className="label">Compliance</p>
               <h2 id="trust-title" className="display display--lg">
-                Open about how we keep both products safe.
+                Open about how we keep our products safe.
               </h2>
               <p className="body">
-                These pages are being prepared. Each will be published here as it is ready.
+                These pages are being prepared. Security details for Trahdo App and F&O Advisor will be published here as each launches.
               </p>
             </div>
             <ul className="trust__list" data-sc-in data-sc-stagger="70">

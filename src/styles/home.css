@@ -168,6 +168,10 @@
   background: var(--app-ground);
   --soft: var(--app-ink-soft);
 }
+.product--adv {
+  background: var(--adv-ground);
+  --soft: var(--adv-ink-soft);
+}
 .product__id {
   display: flex;
   align-items: center;
@@ -222,9 +226,12 @@
 .product--app .product__status i {
   background: var(--app-accent);
 }
+.product--adv .product__status i {
+  background: var(--adv-accent);
+}
 @media (min-width: 880px) {
   .place__panes {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.25fr 1fr 1fr;
   }
 }
 
@@ -1086,4 +1093,93 @@
   .peak__lab .peak__cap {
     display: none;
   }
+}
+
+/* Trahdo App: what it does, in brief */
+.brief {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 36rem;
+  display: grid;
+  border-top: 1px solid var(--app-line);
+}
+.brief li {
+  display: grid;
+  gap: 0.2rem 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--app-line);
+}
+.brief b {
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--sc-ink);
+}
+.brief span {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--app-ink-soft);
+  text-wrap: pretty;
+}
+@media (min-width: 560px) {
+  .brief li {
+    grid-template-columns: 7.2rem 1fr;
+    align-items: baseline;
+  }
+}
+
+/* labels inside the order book */
+.ladder__cols {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.7rem 0.45rem;
+  margin: 0;
+  font-size: 0.62rem;
+}
+.ladder__tag {
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.6rem;
+}
+.ladder__tag--ask {
+  color: var(--down);
+}
+.ladder__tag--bid {
+  color: var(--up);
+}
+
+/* Trahdo App: the warm glow must not end on a hard line at the top or bottom of the section.
+   Both fades sit above the image and below the content. */
+.trade__light {
+  z-index: 0;
+}
+.trade__inner {
+  z-index: 1;
+}
+.trade::before,
+.trade::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.trade::before {
+  top: -1px;
+  height: 22%;
+  background: linear-gradient(to bottom, var(--sc-canvas) 0%, color-mix(in oklab, var(--sc-canvas) 50%, transparent) 55%, transparent 100%);
+}
+.trade::after {
+  bottom: -1px;
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in oklab, var(--sc-canvas) 25%, transparent) 30%,
+    color-mix(in oklab, var(--sc-canvas) 65%, transparent) 62%,
+    var(--sc-canvas) 100%
+  );
 }

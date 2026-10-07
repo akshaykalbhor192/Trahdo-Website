@@ -102,7 +102,7 @@
 
 /* two doors, each on its own product ground */
 .close__doors {
-  width: min(44rem, 100%);
+  width: min(66rem, 100%);
   display: grid;
   gap: 0.8rem;
   margin-top: 0.8rem;
@@ -149,6 +149,10 @@
   letter-spacing: -0.01em;
   color: var(--soft);
 }
+.door--adv {
+  background: var(--adv-ground);
+  --soft: var(--adv-ink-soft);
+}
 .door__status {
   grid-column: 1;
   display: inline-flex;
@@ -171,6 +175,9 @@
 .door--app .door__status i {
   background: var(--app-accent);
 }
+.door--adv .door__status i {
+  background: var(--adv-accent);
+}
 .door .btn {
   grid-column: 2;
   grid-row: 1 / span 2;
@@ -180,9 +187,9 @@
   background: transparent;
   cursor: default;
 }
-@media (min-width: 720px) {
+@media (min-width: 960px) {
   .close__doors {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .door {
     grid-template-columns: 1fr;
@@ -196,7 +203,7 @@
     justify-self: stretch;
   }
 }
-@media (max-width: 719px) {
+@media (max-width: 959px) {
   .door {
     grid-template-columns: 1fr auto;
     gap: 0.8rem 0.75rem;
@@ -226,10 +233,10 @@
     font-size: 0.9rem;
   }
   .close__day {
-    height: 12%;
+    height: 10%;
   }
 }
-@media (max-width: 719px) and (max-height: 700px) {
+@media (max-width: 959px) and (max-height: 700px) {
   .close__copy .lede {
     display: none;
   }

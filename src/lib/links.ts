@@ -7,8 +7,10 @@
 export const LINKS = {
   /** Trahdo Market Intelligence, live. */
   marketIntelligence: 'https://unicorn-dashboard-rust.vercel.app/',
-  /** Trahdo App early-access entry. Not yet public. */
-  appEarlyAccess: null as string | null,
+  /** Trahdo App: a notify-me or waitlist link. Coming soon, not yet public. */
+  appNotify: null as string | null,
+  /** F&O Advisor: a notify-me or waitlist link. Coming soon, not yet public. */
+  advisorNotify: null as string | null,
   /** Where security reports go (an address or a form). Not yet public. */
   securityContact: null as string | null,
   /** Public status page. Not yet public. */

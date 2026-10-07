@@ -203,3 +203,25 @@ through the pan rail, contrast on the render, route changes (engine destroy/re-m
 
 Where it differs from the plan: act 6 is more *precision* than *awe*. That fits a finance
 audience, so the peak was left restrained rather than made louder.
+
+---
+
+## Update: three products
+
+The product line is now **Market Intelligence (live)**, **Trahdo App (coming soon)** and **F&O
+Advisor (coming soon)**, where F&O Advisor "explains positions and risk" (the owner's words).
+
+- "Early access" is gone everywhere; Trahdo App and F&O Advisor say "Coming soon" and have
+  notify-me link slots (`LINKS.appNotify`, `LINKS.advisorNotify`) that render an honest
+  "Launch details coming" until filled.
+- **Third identity: F&O Advisor** takes a deep ink-blue ground and a clear blue (`--adv-*`),
+  held to its own chapter, the Products pane, its close door and its About chip.
+- **New act, F&O Advisor**, between Trade and the peak: an operable payoff explainer (buy a
+  call, buy a put, bull call spread, sell a put) computed from real option maths on illustrative
+  numbers. It shows the payoff at expiry, the most you can lose, the most you can make and the
+  break-even, plus a plain-language paragraph built from the same numbers. It states that it is
+  illustrative and not a recommendation. It deliberately shows **no** trade ideas, no margin
+  figures and no performance claims, because none were supplied.
+- The dock's Trade stop now reads "Trade & F&O". Eight acts, six device families.
+- Security copy says Trahdo App is coming soon and that F&O Advisor's security details will be
+  published at launch; no F&O protections were invented.

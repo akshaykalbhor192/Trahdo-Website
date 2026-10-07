@@ -219,3 +219,7 @@
   background: var(--app-ground);
   color: var(--app-accent);
 }
+.both__adv {
+  background: var(--adv-ground);
+  color: var(--adv-accent);
+}

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Scroll-Craft verification output (large, regenerable)
+scrollcraft/lab/shots/
+scrollcraft/lab/verify/
+scrollcraft/lab/*.py

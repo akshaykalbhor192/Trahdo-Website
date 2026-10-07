@@ -203,7 +203,7 @@
 .rail__now {
   display: none;
   flex: none;
-  min-width: 4.8rem;
+  min-width: 6.4rem;
   font-family: var(--sc-font-mono);
   font-size: 0.66rem;
   letter-spacing: 0.09em;

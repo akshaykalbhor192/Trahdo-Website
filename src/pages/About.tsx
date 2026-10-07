@@ -49,16 +49,16 @@ function Sheet() {
 function Terminal() {
   const levels = [3, 5, 2, 4, 1]
   return (
-    <div className="mini" role="img" aria-label="Order book illustration: Level 2 depth, scanners, one-click execution">
+    <div className="mini" role="img" aria-label="Order book illustration: live market, buy and sell">
       <div className="mini__rows">
         {levels.map((w, i) => (
           <span key={i} style={{ transform: `scaleX(${w / 5})` }} />
         ))}
       </div>
       <ul className="mini__tags mono">
-        <li>Level 2</li>
-        <li>Scanners</li>
-        <li>One-click</li>
+        <li>Live market</li>
+        <li>Buy</li>
+        <li>Sell</li>
       </ul>
     </div>
   )
@@ -66,7 +66,7 @@ function Terminal() {
 
 function Both() {
   return (
-    <div className="both" role="img" aria-label="Trahdo Market Intelligence and Trahdo App">
+    <div className="both" role="img" aria-label="Trahdo Market Intelligence, Trahdo App and F&O Advisor">
       <div className="both__mi">
         <Mark />
         <span>Market Intelligence</span>
@@ -75,7 +75,12 @@ function Both() {
       <div className="both__app">
         <Mark />
         <span>App</span>
-        <small className="mono">Early access</small>
+        <small className="mono">Coming soon</small>
+      </div>
+      <div className="both__adv">
+        <Mark />
+        <span>F&amp;O Advisor</span>
+        <small className="mono">Coming soon</small>
       </div>
     </div>
   )
@@ -224,7 +229,7 @@ export default function About() {
             <h2 id="about-cta" className="display display--xl">
               Come see what we are building.
             </h2>
-            <p className="lede">Two products, one mission. Pick the one that fits how you invest.</p>
+            <p className="lede">Three products, one mission. Start with the one that is live today.</p>
             <div className="cta-block__row">
               <Link to="/#get-started" className="btn btn--primary">
                 {CTA_LABEL}

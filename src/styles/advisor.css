@@ -1,0 +1,230 @@
+/* ============================================================ F&O Advisor ==
+   Its own ground and accent (deep ink-blue and a clear blue), held to this chapter, the same
+   way Market Intelligence keeps graphite and green and Trahdo App keeps warm ink and ember. */
+
+.btn--adv {
+  background: var(--adv-accent);
+  color: #06121f;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn--adv:hover {
+    background: color-mix(in oklab, var(--adv-accent) 86%, white);
+  }
+}
+
+.advisor {
+  --soft: var(--adv-ink-soft);
+  --focus: var(--adv-accent);
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) var(--sc-gutter) calc(var(--rail-h) + 3rem);
+}
+.advisor__inner {
+  width: 100%;
+  max-width: 112rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.advisor__copy {
+  display: grid;
+  gap: 1.15rem;
+  justify-items: start;
+}
+.advisor__copy .label:first-child {
+  color: var(--adv-accent);
+}
+.advisor__copy .display {
+  max-width: 13ch;
+}
+.advisor__how {
+  font-size: 0.92rem;
+}
+.advisor__soon {
+  margin: 0.4rem 0 0;
+}
+
+.lab {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem 1.3rem;
+  background: var(--adv-surface);
+  border: 1px solid var(--adv-line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1), inset 0 1px 0 color-mix(in oklab, #fff 6%, transparent);
+  max-width: 38rem;
+  width: 100%;
+  justify-self: end;
+  --soft: var(--adv-ink-soft);
+}
+.lab__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--adv-line);
+}
+.lab__head .label {
+  margin: 0;
+  font-size: 0.66rem;
+}
+.lab__head h3 {
+  color: var(--adv-accent);
+}
+.lab__picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.lab__choice {
+  min-height: 2.6rem;
+  padding: 0 0.8rem;
+  border: 1px solid var(--adv-line);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--adv-ink-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition:
+    background-color 140ms var(--ease-out),
+    border-color 140ms var(--ease-out),
+    color 140ms var(--ease-out),
+    transform 120ms var(--ease-out);
+}
+.lab__choice:active {
+  transform: translateY(1px) scale(0.985);
+}
+.lab__choice[aria-checked='true'] {
+  border-color: var(--adv-accent);
+  background: color-mix(in oklab, var(--adv-accent) 14%, transparent);
+  color: var(--sc-ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab__choice:hover {
+    border-color: color-mix(in oklab, var(--adv-accent) 60%, transparent);
+    color: var(--sc-ink);
+  }
+}
+
+.lab__chart {
+  position: relative;
+  height: clamp(9rem, 22vh, 13rem);
+  margin-top: 0.2rem;
+}
+.lab__chart svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.lab__gain {
+  fill: color-mix(in oklab, var(--up) 22%, transparent);
+}
+.lab__loss {
+  fill: color-mix(in oklab, var(--down) 24%, transparent);
+}
+.lab__zero {
+  stroke: color-mix(in oklab, var(--sc-ink) 30%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+.lab__spot {
+  stroke: color-mix(in oklab, var(--sc-ink) 16%, transparent);
+  stroke-width: 1;
+}
+.lab__line {
+  fill: none;
+  stroke: var(--adv-accent);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+}
+.lab__marker {
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: -0.4rem 0 0 -0.4rem;
+  border-radius: 50%;
+  background: var(--sc-ink);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--adv-accent) 30%, transparent);
+  pointer-events: none;
+}
+.lab__tag {
+  position: absolute;
+  bottom: 0.2rem;
+  translate: -50% 0;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: var(--adv-ink-soft);
+  white-space: nowrap;
+}
+
+.lab__slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+}
+.lab__slider .label {
+  margin: 0;
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+.lab__slider output {
+  min-width: 3.2rem;
+  text-align: right;
+  font-weight: 600;
+  color: var(--sc-ink);
+}
+.lab__slider input {
+  width: 100%;
+  height: 2.2rem;
+  accent-color: var(--adv-accent);
+  cursor: pointer;
+}
+
+.lab__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  margin: 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid var(--adv-line);
+}
+.lab__facts dt {
+  margin: 0 0 0.25rem;
+  font-size: 0.64rem;
+}
+.lab__facts dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.lab__says {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--sc-ink) 82%, transparent);
+  min-height: 7.2rem;
+  text-wrap: pretty;
+}
+@media (min-width: 560px) {
+  .lab__facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (min-width: 880px) {
+  .advisor__inner {
+    grid-template-columns: 1fr 1.05fr;
+  }
+}
+@media (max-width: 879px) {
+  .advisor {
+    align-items: start;
+  }
+}
