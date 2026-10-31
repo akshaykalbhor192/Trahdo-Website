@@ -19,6 +19,32 @@ const at = (minute: number) => `${(minute / SESSION_MINUTES) * 100}%`
 function Hero() {
   const ref = useRef<HTMLElement>(null)
   useProgress(ref, 'pass')
+
+  // The NIFTY readout hangs off the line's end; if the headline reaches that far, drop it below.
+  useEffect(() => {
+    const hero = ref.current
+    const now = hero?.querySelector<HTMLElement>('.q-hero__now')
+    const words = hero?.querySelectorAll<HTMLElement>('.q-hero__title .q-hero__m')
+    if (!hero || !now || !words) return
+    const fit = () => {
+      now.style.removeProperty('--drop')
+      const n = now.getBoundingClientRect()
+      let drop = 0
+      for (const w of words) {
+        const r = w.getBoundingClientRect()
+        if (r.left < n.right + 12 && r.right > n.left - 12 && r.top < n.bottom && r.bottom + 12 > n.top) {
+          drop = Math.max(drop, r.bottom + 12 - n.top)
+        }
+      }
+      if (drop) now.style.setProperty('--drop', `${Math.ceil(drop)}px`)
+    }
+    fit()
+    void document.fonts?.ready.then(fit)
+    const ro = new ResizeObserver(fit)
+    ro.observe(hero)
+    return () => ro.disconnect()
+  }, [])
+
   return (
     <section className="q-hero" ref={ref} aria-labelledby="q-hero-title">
       <div className="q-hero__field" data-scene="line" aria-hidden="true">
