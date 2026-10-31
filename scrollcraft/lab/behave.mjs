@@ -75,10 +75,10 @@ const instances = (page) => page.evaluate(() => window.ScrollCraft.instances.len
 
   await page.goto(BASE + '/', { waitUntil: 'networkidle' })
   await settle(page)
-  await page.locator('.rail__tick[aria-label="Jump to Trade & F&O"]').click()
+  await page.locator('.rail__tick[aria-label="Jump to F&O Advisor"]').click()
   await settle(page, 700)
-  const trade = await page.evaluate(() => Math.abs(document.getElementById('trade').getBoundingClientRect().top))
-  ok('rail tick jumps to Trade', trade < 8, String(trade))
+  const adv = await page.evaluate(() => Math.abs(document.getElementById('advisor').getBoundingClientRect().top))
+  ok('rail tick jumps to F&O Advisor', adv < 8, String(adv))
   const clock = await page.locator('.rail__clock span').first().innerText()
   ok('rail clock reads a trading-hours time', /^\d\d:\d\d$/.test(clock), clock)
 
@@ -92,70 +92,47 @@ const instances = (page) => page.evaluate(() => window.ScrollCraft.instances.len
   await ctx.close()
 }
 
-// ---- 3. the trade ticket ------------------------------------------------------------
+// ---- 3. the two products -----------------------------------------------------------
 {
   const { ctx, page, errors } = await fresh()
-  await page.goto(BASE + '/#trade', { waitUntil: 'networkidle' })
+  await page.goto(BASE + '/#products', { waitUntil: 'networkidle' })
   await settle(page, 900)
-  const pos = () => page.locator('.position dd').first().innerText()
-  ok('ticket starts flat', (await pos()) === 'Flat')
-  await page.locator('.ticket__buy').click()
-  ok('buy 100 -> +100', (await pos()) === '+100', await pos())
-  ok('fill recorded', (await page.locator('.fills li').count()) === 1)
-  await page.locator('.ticket__sell').click()
-  ok('sell 100 -> flat again', (await pos()) === 'Flat', await pos())
-  await page.locator('.ticket__sell').click()
-  ok('sell again -> -100', (await pos()) === '-100', await pos())
-  await page.locator('.fills__flat').click()
-  ok('close position -> flat', (await pos()) === 'Flat')
-  const spread = await page.locator('.ladder__spread').innerText()
-  ok('spread shown before any click', /Spread 0\.03/.test(spread), spread)
-  ok('no console errors', errors.length === 0, errors.join(' | '))
-  await ctx.close()
-}
+  const hrefs = await page.locator('#products a').evaluateAll((as) => as.map((a) => a.href))
+  ok('products: links to the live dashboard', hrefs.includes('https://dashboard.trahdo.com/'), hrefs.join(' '))
+  ok('products: links to the live F&O Advisor', hrefs.includes('https://fo-advisor.vercel.app/'), hrefs.join(' '))
+  ok('products: two panes, both live', (await page.locator('#products .product').count()) === 2 &&
+    (await page.locator('#products .product__status').allInnerTexts()).every((t) => /live now/i.test(t)))
+  const body = await page.locator('body').innerText()
+  ok('no Trahdo App anywhere on the home page', !/Trahdo App/i.test(body))
+  ok('no "coming soon" left', !/coming soon/i.test(body))
 
-// ---- 3b. the F&O Advisor explainer ----------------------------------------------------
-{
-  const { ctx, page, errors } = await fresh()
   await page.goto(BASE + '/#advisor', { waitUntil: 'networkidle' })
   await settle(page, 900)
-  const facts = async () => (await page.locator('.lab__facts dd').allInnerTexts()).map((t) => t.trim())
-  const choose = (name) => page.locator('.lab__choice', { hasText: name }).click()
-  const setSpot = (v) =>
-    page.locator('.lab__slider input').evaluate((el, value) => {
-      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, value)
-      el.dispatchEvent(new Event('input', { bubbles: true }))
-    }, String(v))
+  const steps = await page.locator('#advisor .step__name').allInnerTexts()
+  ok('advisor: Watch, Weigh, Call, Check', steps.join(',') === 'Watch,Weigh,Call,Check', steps.join(','))
+  const imgs = await page.locator('#advisor img').evaluateAll((im) =>
+    im.map((i) => { i.loading = 'eager'; return i.src }))
+  await page.waitForTimeout(800)
+  const loaded = await page.locator('#advisor img').evaluateAll((im) => im.every((i) => i.complete && i.naturalWidth > 0))
+  ok('advisor: all product screenshots load', loaded && imgs.length === 5, String(imgs.length))
+  ok('advisor: carries the product disclaimer', /not investment advice/i.test(await page.locator('#advisor').innerText()))
 
-  await setSpot(105)
-  let f = await facts()
-  ok('buy a call @105: P&L +2.00', f[0] === '+2.00', f[0])
-  ok('buy a call: most you can lose 3.00', f[1] === '3.00', f[1])
-  ok('buy a call: no limit on the upside', f[2] === 'No limit', f[2])
-  ok('buy a call: break-even 103.00', f[3] === '103.00', f[3])
+  await page.goto(BASE + '/#get-started', { waitUntil: 'networkidle' })
+  await settle(page, 900)
+  const doors = await page.locator('.close__doors .btn').allInnerTexts()
+  ok('close: two doors, both open a live product', doors.length === 2 && doors.every((d) => /^Open /.test(d.trim())), doors.join(' | '))
 
-  await choose('Buy a put')
-  await setSpot(95)
-  f = await facts()
-  ok('buy a put @95: P&L +2.20', f[0] === '+2.20', f[0])
-  ok('buy a put: break-even 97.20', f[3] === '97.20', f[3])
-
-  await choose('Bull call spread')
-  await setSpot(108)
-  f = await facts()
-  ok('bull call spread: capped gain 3.90', f[2] === '3.90', f[2])
-  ok('bull call spread: most you can lose 2.10', f[1] === '2.10', f[1])
-  ok('bull call spread @108: P&L +3.90', f[0] === '+3.90', f[0])
-
-  await choose('Sell a put')
-  await setSpot(90)
-  f = await facts()
-  ok('sell a put: most you can make 1.60', f[2] === '1.60', f[2])
-  ok('sell a put: loss is bounded and large (96.40)', f[1] === '96.40', f[1])
-  ok('sell a put @90: P&L -6.40', f[0] === '-6.40', f[0])
-  const says = await page.locator('.lab__says').innerText()
-  ok('plain-language text matches the position', /collect 1\.60/.test(says), says.slice(0, 60))
-  ok('chart is labelled illustrative', /Illustrative/i.test(await page.locator('.lab__head').innerText()))
+  // the peak: calls appear and get graded as the clock passes them
+  await page.goto(BASE + '/#session', { waitUntil: 'networkidle' })
+  const top = await page.evaluate(() => document.getElementById('session').getBoundingClientRect().top + scrollY)
+  const travel = await page.evaluate(() => document.getElementById('session').offsetHeight - innerHeight)
+  await page.evaluate((y) => scrollTo({ top: y, behavior: 'instant' }), Math.round(top + travel * 0.95))
+  await settle(page, 700)
+  const shown = await page.locator('.peak__call[data-on="true"]').count()
+  const grades = await page.locator('.peak__grade[data-on="true"]').count()
+  ok('peak: calls are made by the end of the session', shown >= 3, String(shown))
+  ok('peak: calls are graded by the end of the session', grades >= 3, String(grades))
+  ok('peak: labelled as an illustration, not a track record', /not a track record/i.test(await page.locator('.peak__note').innerText()))
   ok('no console errors', errors.length === 0, errors.join(' | '))
   await ctx.close()
 }

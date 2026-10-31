@@ -200,17 +200,48 @@ export const ALERTS: Alert[] = STOCKS.flatMap((id) => detectAlerts(SERIES[id])).
 export const EVENT_ALERT: Alert =
   ALERTS.find((a) => a.symbol === 'TATASTEEL' && a.kind === 'volume') ?? ALERTS[0]
 
-export const SAMPLE_SPREAD = 0.03
-export const ORDER_QTY = 500
-/** One-click order two minutes after the alert, filled at the displayed ask. */
-export const ORDER_MINUTE = EVENT_ALERT.minute + 2
-export const ORDER_PRICE = SERIES.TATASTEEL.price[ORDER_MINUTE] + SAMPLE_SPREAD / 2
+// ------------------------------------------------------- illustrative calls
+/*
+ * A deliberately simple, transparent stand-in used ONLY to show the shape of "make a call,
+ * then check it" on the sample session. It is not F&O Advisor's model and not a track record:
+ *
+ *   every CALL_EVERY minutes from CALLS_FROM, look at the last LOOKBACK minutes of the index.
+ *   Up more than LEAN: BUY. Down more than LEAN: SELL. Otherwise: hold, no call.
+ *   GRADE_AFTER minutes later, a call is a HIT if its best move in its direction reached NEED.
+ */
+export const CALLS_FROM = 110
+export const CALL_EVERY = 27
+export const LOOKBACK = 10
+export const LEAN = 0.0002
+export const GRADE_AFTER = 15
+export const NEED = 0.0007
 
-export function portfolioValue(minute: number): number {
-  const m = Math.min(Math.max(Math.floor(minute), 0), SESSION_MINUTES)
-  if (m < ORDER_MINUTE) return STARTING_CAPITAL
-  return STARTING_CAPITAL + ORDER_QTY * (SERIES.TATASTEEL.price[m] - ORDER_PRICE)
+export interface Call {
+  minute: number
+  side: 'BUY' | 'SELL'
+  entry: number
+  gradedAt: number
+  /** Best move in the call's direction within the grading window, as a fraction. */
+  best: number
+  hit: boolean
 }
+
+export const CALLS: Call[] = (() => {
+  const p = SERIES.NIFTY.price
+  const out: Call[] = []
+  for (let c = CALLS_FROM; c + GRADE_AFTER <= SESSION_MINUTES; c += CALL_EVERY) {
+    const lean = p[c] / p[c - LOOKBACK] - 1
+    if (Math.abs(lean) < LEAN) continue
+    const side = lean > 0 ? 'BUY' : 'SELL'
+    let best = -Infinity
+    for (let k = c + 1; k <= c + GRADE_AFTER; k++) {
+      const move = side === 'BUY' ? p[k] / p[c] - 1 : 1 - p[k] / p[c]
+      best = Math.max(best, move)
+    }
+    out.push({ minute: c, side, entry: p[c], gradedAt: c + GRADE_AFTER, best, hit: best >= NEED })
+  }
+  return out
+})()
 
 // ------------------------------------------------------------------- helpers
 

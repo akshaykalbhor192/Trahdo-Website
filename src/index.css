@@ -1,12 +1,9 @@
 /*
- * Cascade order. Tailwind owns theme/base/utilities. The vendored Scroll-Craft engine CSS is
- * imported into its own `sc` layer so its global resets cannot override anything we author.
- * Our own styles are unlayered, so they win over both.
+ * The only global styles. Tailwind supplies its preflight reset, which both designs are built
+ * on, and Geist is the type of design 2 and of the design switcher. Everything else is scoped
+ * inside each design: src/v2/v2.css (`.nx`) and src/v5/v5.css (`.qx`).
  */
-@layer theme, base, sc, components, utilities;
-
 @import "tailwindcss";
-@import "./vendor/scrollcraft/scrollcraft.css" layer(sc);
 
 @import "@fontsource/geist-sans/400.css";
 @import "@fontsource/geist-sans/500.css";
@@ -15,12 +12,25 @@
 @import "@fontsource/geist-mono/400.css";
 @import "@fontsource/geist-mono/500.css";
 
-@import "./styles/tokens.css";
-@import "./styles/base.css";
-@import "./styles/chrome.css";
-@import "./styles/hero.css";
-@import "./styles/home.css";
-@import "./styles/advisor.css";
-@import "./styles/close.css";
-@import "./styles/pages.css";
-@import "./styles/about.css";
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+body {
+  margin: 0;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}

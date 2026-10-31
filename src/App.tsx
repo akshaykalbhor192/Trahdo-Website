@@ -1,32 +1,46 @@
-import { Route, Routes } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import About from './pages/About'
-import Security from './pages/Security'
-import Careers from './pages/Careers'
-import NotFound from './pages/NotFound'
+import { Navigate, useLocation } from 'react-router-dom'
+import VersionToggle from './components/VersionToggle'
+import V2App from './v2/V2App'
+import V5App from './v5/V5App'
 import { useSmoothScroll } from './lib/smoothScroll'
+
+/** Old prefixes and where their links now land: renamed designs keep their page, retired ones open in 2nd. */
+const MOVED: [from: string, to: string][] = [
+  ['/new', '/1st'],
+  ['/5th', '/2nd'],
+  ['/newest', '/2nd'],
+  ['/4th', '/2nd'],
+]
+
+const under = (pathname: string, prefix: string) => pathname === prefix || pathname.startsWith(`${prefix}/`)
 
 function App() {
   useSmoothScroll()
+  const { pathname, search, hash } = useLocation()
 
-  return (
-    <>
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/security" element={<Security />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </>
-  )
+  // Two designs, each with its own chrome: 1st under /1st (src/v2), 2nd under /2nd (src/v5).
+  if (under(pathname, '/2nd')) {
+    return (
+      <>
+        <V5App />
+        <VersionToggle />
+      </>
+    )
+  }
+  if (under(pathname, '/1st')) {
+    return (
+      <>
+        <V2App />
+        <VersionToggle />
+      </>
+    )
+  }
+
+  // Everything else (the root, the old /about-style paths, old design prefixes) opens in 2nd.
+  const moved = MOVED.find(([from]) => under(pathname, from))
+  const base = moved ? moved[1] : '/2nd'
+  const rest = moved ? pathname.slice(moved[0].length) : pathname
+  return <Navigate to={`${base}${rest === '/' || rest === '' ? '' : rest}${search}${hash}`} replace />
 }
 
 export default App

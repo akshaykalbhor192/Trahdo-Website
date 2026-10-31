@@ -6,11 +6,9 @@
  */
 export const LINKS = {
   /** Trahdo Market Intelligence, live. */
-  marketIntelligence: 'https://unicorn-dashboard-rust.vercel.app/',
-  /** Trahdo App: a notify-me or waitlist link. Coming soon, not yet public. */
-  appNotify: null as string | null,
-  /** F&O Advisor: a notify-me or waitlist link. Coming soon, not yet public. */
-  advisorNotify: null as string | null,
+  marketIntelligence: 'https://dashboard.trahdo.com/',
+  /** F&O Advisor, live. Accounts are created by invitation from inside the app. */
+  foAdvisor: 'https://fo-advisor.vercel.app/',
   /** Where security reports go (an address or a form). Not yet public. */
   securityContact: null as string | null,
   /** Public status page. Not yet public. */

@@ -225,3 +225,34 @@ Advisor (coming soon)**, where F&O Advisor "explains positions and risk" (the ow
 - The dock's Trade stop now reads "Trade & F&O". Eight acts, six device families.
 - Security copy says Trahdo App is coming soon and that F&O Advisor's security details will be
   published at launch; no F&O protections were invented.
+
+---
+
+## Update: two live products (supersedes "three products" above)
+
+The owner confirmed the real line-up and pointed at the live sites:
+
+- **Market Intelligence**, https://dashboard.trahdo.com/ (public page is its sign-in screen)
+- **F&O Advisor**, https://fo-advisor.vercel.app/ (public product page)
+
+Trahdo App is removed from the site entirely. Content is now built around the two live
+products, and every product picture is a screenshot of its live site (captured in headless
+Chrome at 2x, cropped, converted to WebP).
+
+What changed, and why:
+
+- The earlier F&O Advisor "payoff explainer" was built on a guess ("explains positions and
+  risk"). The real product makes **index calls** (BUY/SELL, or hold below a 65% move likelihood)
+  with entry, stop and target, and **grades each call fifteen minutes later**. The explainer is
+  gone; the F&O Advisor chapter now uses the product's own screenshots (Watch, Weigh, Call,
+  Check, the example session) and its own words and FAQ, including its disclaimer: an analysis
+  tool for education, not investment advice; derivatives can lose more than you put in.
+- **F&O Advisor identity** now uses its real palette: near-black, #ff5b23, violet #5047ff, green.
+- **The peak** is now "researched, called and checked": Market Intelligence context, calls on the
+  index, then hit/miss grades. The calls come from a deliberately simple rule on the sample
+  session and are labelled as not F&O Advisor's model and not a track record.
+- **Security** no longer carries the app's custody claims. The lanes are Market Intelligence
+  (read-only, owner claims) and F&O Advisor (no order placement, invitation-only accounts,
+  calls on the record; all from its own site). Neither product moves money.
+- About drops the 2023 trading-terminal beat; the timeline is 2021, 2022, Today.
+- Seven acts again; the dock stop is "F&O Advisor".

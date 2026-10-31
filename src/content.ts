@@ -25,14 +25,9 @@ export const timeline: Milestone[] = [
     body: 'The first product goes live: real-time NSE/BSE data and AI-generated briefs.',
   },
   {
-    year: '2023',
-    title: 'A trading terminal takes shape',
-    body: 'Buying, selling and the live market on one screen, for people who live in the market all day. The start of what is now Trahdo App.',
-  },
-  {
     year: 'Today',
-    title: 'Three products, one mission',
-    body: 'Market Intelligence is live. Trahdo App and F&O Advisor are coming soon. We are just getting started.',
+    title: 'Two products, one mission',
+    body: 'Market Intelligence and F&O Advisor are both live: see what is moving, then make a call you can check. We are just getting started.',
   },
 ]
 
@@ -73,13 +68,13 @@ export const securityLanes = {
       { title: 'Scoped keys', body: 'API and integration keys are scoped to market data only, and can be revoked instantly.' },
     ],
   },
-  app: {
-    name: 'Trahdo App',
-    heading: 'Custody-grade protection for every order.',
+  advisor: {
+    name: 'F&O Advisor',
+    heading: 'Calls and trade plans, never your orders.',
     steps: [
-      { title: 'Segregated funds', body: 'Client funds are held in segregated, regulated accounts, never on our balance sheet.' },
-      { title: 'A second factor', body: 'Every order and withdrawal needs a second factor, no exceptions.' },
-      { title: 'A locked destination', body: 'Lock withdrawals to one verified bank account, and get alerted on any new device.' },
+      { title: 'No order placement', body: 'F&O Advisor shows calls and trade plans. It does not place trades; if you act on one, you place the trade yourself, somewhere else.' },
+      { title: 'Accounts by invitation', body: 'Accounts are created from inside the app by someone who already has one.' },
+      { title: 'Every call on the record', body: 'Each call is graded against what happened next, and the misses stay in the table.' },
     ],
   },
 }
