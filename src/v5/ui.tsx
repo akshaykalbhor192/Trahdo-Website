@@ -225,9 +225,6 @@ export function Nav() {
           </ul>
         </nav>
         <div className="q-nav__end">
-          <a className="q-nav__plain" href={LINKS.marketIntelligence} target="_blank" rel="noopener noreferrer">
-            Sign in
-          </a>
           <Btn to={to('/#start')} className="q-btn--sm">
             {CTA_LABEL}
           </Btn>
@@ -254,9 +251,6 @@ export function Nav() {
           </nav>
           <div className="q-sheet__end">
             <Btn to={to('/#start')}>{CTA_LABEL}</Btn>
-            <Btn href={LINKS.marketIntelligence} variant="ghost">
-              Sign in
-            </Btn>
           </div>
         </div>
       ) : null}

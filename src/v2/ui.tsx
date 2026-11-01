@@ -180,9 +180,6 @@ export function Nav() {
           </ul>
         </nav>
         <div className="nx-nav__end">
-          <a className="nx-nav__plain" href={LINKS.marketIntelligence} target="_blank" rel="noopener noreferrer">
-            Sign in
-          </a>
           <Btn to={to('/#start')} className="nx-btn--sm">
             {CTA_LABEL}
           </Btn>
