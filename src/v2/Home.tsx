@@ -157,9 +157,6 @@ function Hero() {
         </p>
         <div className="nx-hero__cta" data-r style={{ '--d': '520ms' } as CSSProperties}>
           <Btn to={to('/#start')}>{CTA_LABEL}</Btn>
-          <Btn href={LINKS.marketIntelligence} variant="ghost">
-            Open Market Intelligence
-          </Btn>
         </div>
         <ul className="nx-hero__facts" data-r style={{ '--d': '620ms' } as CSSProperties}>
           <li>

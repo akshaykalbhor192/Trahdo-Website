@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import VersionToggle from './components/VersionToggle'
+import Gate from './gate/Gate'
 import V2App from './v2/V2App'
 import V5App from './v5/V5App'
 import { useSmoothScroll } from './lib/smoothScroll'
@@ -16,6 +17,14 @@ const under = (pathname: string, prefix: string) => pathname === prefix || pathn
 
 function App() {
   useSmoothScroll()
+  return (
+    <Gate>
+      <Site />
+    </Gate>
+  )
+}
+
+function Site() {
   const { pathname, search, hash } = useLocation()
 
   // Two designs, each with its own chrome: 1st under /1st (src/v2), 2nd under /2nd (src/v5).

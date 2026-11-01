@@ -1,0 +1,539 @@
+/*
+ * The private-preview gate (Gate.tsx): sign-in page and the "opening the session" animation.
+ * Design 2's colours and type, scoped under `.gt` so it never reaches either design.
+ */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/archivo/wdth-italic.css";
+@import "@fontsource-variable/instrument-sans/wdth.css";
+@import "@fontsource-variable/martian-mono/wdth.css";
+
+html.gt-doc,
+html.gt-doc body {
+  background: #f3f0e8;
+  color-scheme: light;
+}
+
+.gt {
+  --ground: #f3f0e8;
+  --card: #fbfaf6;
+  --line: rgb(21 20 16 / 0.1);
+  --line-2: rgb(21 20 16 / 0.18);
+  --ink: #151410;
+  --ink-2: #4a463e;
+  --ink-3: #6f695e;
+  --ember: #ff5a1f;
+  --ember-deep: #e14a12;
+  --red: #d6403a;
+  --display: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  --sans: "Instrument Sans Variable", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(20px, 5vw, 72px);
+
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(50% 45% at 92% -6%, rgb(255 90 31 / 0.1), transparent 70%),
+    radial-gradient(40% 40% at -4% 108%, rgb(255 90 31 / 0.08), transparent 70%),
+    var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.gt *,
+.gt *::before,
+.gt *::after {
+  box-sizing: border-box;
+}
+.gt ::selection {
+  background: var(--ember);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------- sign in */
+
+main.gt {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 440px);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "brand brand"
+    "intro card"
+    "foot foot";
+  column-gap: clamp(32px, 7vw, 120px);
+  padding: 28px var(--gutter) 26px;
+}
+
+/* the sample session, drawn faintly behind everything */
+.gt-tape {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  width: 100%;
+  height: 34%;
+  overflow: visible;
+  pointer-events: none;
+}
+.gt-tape path {
+  fill: none;
+  stroke: url(#gt-tape-ink);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.22;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: gt-draw 3.2s var(--ease) 0.3s forwards;
+}
+
+.gt-brand {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: 23px;
+  letter-spacing: -0.03em;
+}
+.gt-mark {
+  display: block;
+  width: 24px;
+  color: var(--ink);
+}
+.gt-mark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.gt-mark polygon {
+  fill: var(--ember);
+  opacity: 1;
+}
+
+.gt-intro {
+  grid-area: intro;
+  align-self: center;
+  padding: 40px 0;
+  animation: gt-rise 1s var(--ease) both;
+}
+.gt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  padding: 7px 14px 7px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: rgb(251 250 246 / 0.7);
+  font-family: var(--mono);
+  font-stretch: 87%;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.gt-eyebrow i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 0 0 rgb(255 90 31 / 0.5);
+  animation: gt-pulse 2s ease-out infinite;
+}
+.gt-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 112%;
+  font-size: clamp(48px, 7.6vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.gt-title em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  color: transparent;
+  background: linear-gradient(100deg, var(--ember-deep), var(--ember));
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding: 0 0.06em 0.08em 0;
+}
+.gt-lede {
+  max-width: 34em;
+  margin: 28px 0 0;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* the form */
+.gt-card {
+  grid-area: card;
+  align-self: center;
+  display: grid;
+  gap: 18px;
+  padding: clamp(26px, 3vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgb(251 250 246 / 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 2px rgb(21 20 16 / 0.05), 0 30px 70px -30px rgb(60 40 20 / 0.35);
+  animation: gt-rise 1s var(--ease) 0.15s both;
+}
+.gt-card.is-wrong {
+  animation: gt-shake 420ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.gt-card__title {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-weight: 650;
+  font-stretch: 104%;
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+.gt-field {
+  display: grid;
+  gap: 8px;
+}
+.gt-field > span:first-child {
+  font-family: var(--mono);
+  font-stretch: 87%;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.gt-field input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font: 500 17px/1 var(--sans);
+  outline: none;
+  transition:
+    border-color 160ms,
+    box-shadow 160ms;
+}
+.gt-field input:hover {
+  border-color: rgb(21 20 16 / 0.32);
+}
+.gt-field input:focus-visible {
+  border-color: var(--ember);
+  box-shadow: 0 0 0 4px rgb(255 90 31 / 0.18);
+}
+.gt-field input[aria-invalid="true"] {
+  border-color: var(--red);
+}
+.gt-pw {
+  position: relative;
+  display: block;
+}
+.gt-pw input {
+  padding-right: 76px;
+}
+.gt-pw__toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink-2);
+  font: 600 13px/1 var(--sans);
+  cursor: pointer;
+}
+.gt-pw__toggle:hover {
+  background: rgb(21 20 16 / 0.06);
+  color: var(--ink);
+}
+.gt-pw__toggle:focus-visible,
+.gt-submit:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+.gt-error {
+  min-height: 1.45em;
+  margin: -6px 0 -4px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--red);
+}
+.gt-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  height: 56px;
+  padding: 0 8px 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ground);
+  font: 600 17px/1 var(--sans);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -16px rgb(21 20 16 / 0.6);
+  transition:
+    background-color 200ms,
+    transform 200ms var(--ease),
+    box-shadow 200ms;
+}
+.gt-submit:hover:not(:disabled) {
+  background: var(--ember);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -16px rgb(255 90 31 / 0.55);
+}
+.gt-submit:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+.gt-submit__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.14);
+  color: #fff;
+  transition: transform 200ms var(--ease);
+}
+.gt-submit:hover:not(:disabled) .gt-submit__icon {
+  transform: translateX(3px);
+}
+.gt-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.gt-foot {
+  grid-area: foot;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-stretch: 87%;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.gt-clock {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+@media (max-width: 860px) {
+  main.gt {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "brand"
+      "intro"
+      "card"
+      "foot";
+    grid-template-rows: auto auto auto 1fr;
+    row-gap: 8px;
+  }
+  .gt-intro {
+    padding: 36px 0 20px;
+  }
+  .gt-eyebrow {
+    margin-bottom: 20px;
+  }
+  .gt-lede {
+    margin-top: 18px;
+  }
+  .gt-card {
+    border-radius: 20px;
+  }
+  .gt-foot {
+    align-self: end;
+    margin-top: 28px;
+  }
+  .gt-foot span:nth-child(2) {
+    display: none;
+  }
+  .gt-tape {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------- opening */
+
+.gt-open {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  clip-path: inset(0 0 0 0);
+  transition: clip-path var(--lift) cubic-bezier(0.76, 0, 0.24, 1);
+}
+.gt-open.is-leaving {
+  clip-path: inset(0 0 100% 0);
+}
+.gt-open__inner {
+  display: grid;
+  justify-items: center;
+  gap: 26px;
+  width: min(560px, 100%);
+  transition:
+    transform var(--lift) cubic-bezier(0.76, 0, 0.24, 1),
+    opacity var(--lift);
+}
+.gt-open.is-leaving .gt-open__inner {
+  transform: translateY(-60px);
+  opacity: 0;
+}
+.gt-open__mark {
+  width: 64px;
+}
+.gt-open__mark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.gt-open__bar {
+  fill: var(--ink);
+  transform-origin: 0 50%;
+  animation: gt-bar 600ms var(--ease) both;
+}
+.gt-open__stem {
+  fill: var(--ember);
+  animation: gt-stem 600ms var(--ease) 220ms both;
+}
+.gt-open__line {
+  width: 100%;
+  height: 120px;
+  overflow: visible;
+}
+.gt-open__line path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.gt-open__track {
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.gt-open__ink {
+  stroke: url(#gt-open-ink);
+  stroke-width: 2.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  /* ease-out, matching the clock's (1 - (1 - t)^2) */
+  animation: gt-draw var(--play) cubic-bezier(0.33, 0.67, 0.67, 1) forwards;
+}
+.gt-open__meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--mono);
+  font-stretch: 87%;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.gt-open__clock {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  font-weight: 600;
+}
+.gt-open__bar-track {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: -14px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+.gt-open__bar-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ink), var(--ember));
+  transform-origin: 0 50%;
+}
+
+/* ------------------------------------------------------------ keyframes */
+
+@keyframes gt-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes gt-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+@keyframes gt-pulse {
+  70% {
+    box-shadow: 0 0 0 9px rgb(255 90 31 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 90 31 / 0);
+  }
+}
+@keyframes gt-shake {
+  15%,
+  85% {
+    transform: translateX(-3px);
+  }
+  30%,
+  70% {
+    transform: translateX(6px);
+  }
+  45%,
+  55% {
+    transform: translateX(-8px);
+  }
+}
+@keyframes gt-bar {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes gt-stem {
+  from {
+    opacity: 0;
+    transform: translate(-14px, -22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gt *,
+  .gt *::before,
+  .gt *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .gt-open,
+  .gt-open__inner {
+    transition-duration: 1ms;
+  }
+}

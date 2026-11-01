@@ -1,7 +1,9 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { signOut } from '../gate/access'
 
 /*
- * Review aid: switches between the two designs (1st under /1st, 2nd under /2nd) on the same page.
+ * Review aid: switches between the two designs (1st under /1st, 2nd under /2nd) on the same page,
+ * and signs out of the private preview.
  * Styled inline so no design's stylesheet can reach it. Remove it once one design is chosen.
  */
 const designs = [
@@ -17,13 +19,14 @@ function split(pathname: string) {
 }
 
 export default function VersionToggle() {
-  const { pathname, hash } = useLocation()
+  const { pathname } = useLocation()
   const navigate = useNavigate()
   const { id: active, rest } = split(pathname)
 
   const go = (d: (typeof designs)[number]) => {
     if (d.id === active) return
-    navigate((rest === '/' ? d.prefix : d.prefix + rest) + hash)
+    // Same page in the other design, from the top: a #section would land wherever it sits there.
+    navigate(rest === '/' ? d.prefix : d.prefix + rest)
   }
 
   const seg = (on: boolean): React.CSSProperties => ({
@@ -67,6 +70,10 @@ export default function VersionToggle() {
           {d.label}
         </button>
       ))}
+      <span aria-hidden="true" style={{ width: 1, height: 18, margin: '0 3px', background: 'rgba(255,255,255,0.14)' }} />
+      <button type="button" style={seg(false)} onClick={signOut}>
+        Sign out
+      </button>
     </div>
   )
 }
