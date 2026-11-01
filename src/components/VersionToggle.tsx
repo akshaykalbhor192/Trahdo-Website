@@ -15,7 +15,7 @@ function split(pathname: string) {
   for (const d of designs) {
     if (pathname === d.prefix || pathname.startsWith(`${d.prefix}/`)) return { id: d.id, rest: pathname.slice(d.prefix.length) || '/' }
   }
-  return { id: '2nd' as const, rest: pathname }
+  return { id: '1st' as const, rest: pathname }
 }
 
 export default function VersionToggle() {

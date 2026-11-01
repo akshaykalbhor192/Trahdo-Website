@@ -34,8 +34,8 @@ npm run dev
 
 Two designs are kept side by side for review. A switcher in the bottom-left corner
 (`src/components/VersionToggle.tsx`) flips between them on the same page; remove it once one
-is chosen. Every other path, including `/` and the old `/new` and `/5th` links, redirects into
-the matching design (`src/App.tsx`).
+is chosen. `/` and any other path open 1st; the old `/new` and `/5th` links redirect into the
+matching design (`src/App.tsx`).
 
 - **2nd, "Dawn Field"** (`/2nd`, `src/v5/`): 1st's colours (warm paper, near-black ink,
   one ember accent) set in Archivo and Instrument Sans. Its pictures are a few thousand particles
