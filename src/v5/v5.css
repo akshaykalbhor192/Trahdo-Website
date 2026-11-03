@@ -327,8 +327,9 @@ html.qx-doc body {
 }
 .q-title__m {
   display: inline-block;
-  overflow: clip;
-  overflow-clip-margin: 0.08em;
+  /* hides the word below its line until it rises; only the bottom edge clips (Safari has no
+     overflow-clip-margin, so overflow: clip would shave italic overhangs at the sides) */
+  clip-path: inset(-0.5em -0.5em 0 -0.5em);
   vertical-align: top;
   padding-bottom: 0.1em;
   margin-bottom: -0.1em;
@@ -737,8 +738,7 @@ html.qx-doc body {
 }
 .q-hero__m {
   display: inline-block;
-  overflow: clip;
-  overflow-clip-margin: 0.1em;
+  clip-path: inset(-0.5em -0.5em 0 -0.5em); /* bottom edge only, as .q-title__m */
   padding-bottom: 0.12em;
   margin-bottom: -0.12em;
   vertical-align: top;
